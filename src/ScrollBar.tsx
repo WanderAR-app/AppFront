@@ -2,15 +2,21 @@ import React, { useState } from 'react';
 import { View, ScrollView, Image, StyleSheet, TouchableOpacity } from 'react-native';
 
 type ScrollBarButtonProps = {
-  image: number;
+  image: any;
   onPress: () => void;
 };
 
 const ScrollBarButton = ({ image, onPress }: ScrollBarButtonProps) => (
   <TouchableOpacity style={styles.button} onPress={onPress}>
-    <Image style={styles.image} source={image} />
+    <Image style={styles.image} source={image} resizeMode="cover" />
   </TouchableOpacity>
 );
+
+const buttons = [
+  { id: 1, image: require('../assets/test1.png'), onPress: () => console.log('Button 1 pressed') },
+  { id: 2, image: require('../assets/test2.png'), onPress: () => console.log('Button 2 pressed') },
+  { id: 3, image: require('../assets/test3.png'), onPress: () => console.log('Button 3 pressed') },
+];
 
 const ScrollBar = () => {
   const [scrollPosition, setScrollPosition] = useState(0);
@@ -30,9 +36,9 @@ const ScrollBar = () => {
         contentContainerStyle={styles.scrollViewContent}
         bounces={false}
       >
-        <ScrollBarButton image={require('../assets/test1.png')} onPress={() => console.log('Button 1 pressed')} />
-        <ScrollBarButton image={require('../assets/test2.png')} onPress={() => console.log('Button 2 pressed')} />
-        <ScrollBarButton image={require('../assets/test3.png')} onPress={() => console.log('Button 3 pressed')} />
+        {buttons.map((button) => (
+          <ScrollBarButton key={button.id} image={button.image} onPress={button.onPress} />
+        ))}
       </ScrollView>
     </View>
   );
@@ -56,8 +62,9 @@ const styles = StyleSheet.create({
     marginHorizontal: 10,
   },
   image: {
-    width: 50,
-    height: 50,
+    width: '100%',
+    height: '100%',
+    borderRadius: 20,
   },
 });
 

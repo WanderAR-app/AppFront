@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { View, TextInput, StyleSheet } from 'react-native';
+import React, { useState, useEffect, useRef } from 'react';
+import { View, TextInput, StyleSheet, Keyboard } from 'react-native';
 import { FontAwesome } from '@expo/vector-icons';
 
 interface Props {
@@ -8,10 +8,15 @@ interface Props {
 
 const SearchBar: React.FC<Props> = ({ onSearch }) => {
   const [searchText, setSearchText] = useState('');
+  const textInputRef = useRef<TextInput>(null);
 
   const handleSearch = () => {
-    onSearch(searchText);
-    setSearchText('');
+    if (searchText.trim().length > 0) {
+      onSearch(searchText);
+      setSearchText('');
+    } else {
+      alert('La barre de recherche ne peut pas être vide.');
+    }
   };
 
   const handleKeyPress = (event: any) => {
@@ -20,11 +25,25 @@ const SearchBar: React.FC<Props> = ({ onSearch }) => {
     }
   };
 
+  useEffect(() => {
+    const handleBlurOnKeyboardHide = () => {
+      textInputRef.current?.blur();
+    };
+
+    const keyboardHideEvent = 'keyboardDidHide';
+    Keyboard.addListener(keyboardHideEvent, handleBlurOnKeyboardHide);
+
+    return () => {
+      Keyboard.removeAllListeners(keyboardHideEvent);
+    };
+  }, []);
+
   return (
     <View style={styles.container}>
       <View style={styles.BarVer}>
         <FontAwesome name="search" size={20} color="#ccc" style={styles.zoom} onPress={handleSearch} />
         <TextInput
+          ref={textInputRef}
           style={styles.BarHor}
           placeholder="Recherche..."
           onChangeText={setSearchText}
