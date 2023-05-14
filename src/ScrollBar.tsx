@@ -41,8 +41,8 @@ const ScrollBar = ({ buttons }: ScrollBarProps) => {
         <View style={styles.textContainer}>
           <Text style={styles.name}>{name}</Text>
           <Text style={styles.description}>{description}</Text>
-          <TouchableOpacity style={styles.favoriteButton} onPress={() => handleFavoriteIconPress(id)}>
-            <Image style={styles.favoriteIcon} source={isFavorite ? require('../assets/like.png') : require('../assets/love.png')} />
+          <TouchableOpacity style={styles.likeButton} onPress={() => handleFavoriteIconPress(id)}>
+            <Image style={styles.likeIcon} source={isFavorite ? require('../assets/like.png') : require('../assets/love.png')} />
           </TouchableOpacity>
         </View>
       </View>
@@ -77,7 +77,6 @@ const ScrollBar = ({ buttons }: ScrollBarProps) => {
 const styles = StyleSheet.create({
   container: {
     height: '60%',
-    marginTop: 10,
   },
   scrollViewContent: {
     paddingHorizontal: 10,
@@ -94,8 +93,6 @@ const styles = StyleSheet.create({
   imageContainer: {
     position: 'relative',
     width: '100%',
-    height: '100%',
-    borderRadius: 20,
   },
   image: {
     width: '100%',
@@ -119,7 +116,7 @@ const styles = StyleSheet.create({
     fontSize: 12,
     color: '#fff',
   },
-  favoriteButton: {
+  likeButton: {
     position: 'absolute',
     marginTop: -35,
     right: 15,
@@ -128,7 +125,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
-  favoriteIcon: {
+  likeIcon: {
     width: '100%',
     height: '100%',
     resizeMode: 'contain',

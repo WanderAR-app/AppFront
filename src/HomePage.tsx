@@ -52,9 +52,11 @@ const HomePage = () => {
           <View style={styles.searchBarContainer}>
             <SearchBar onSearch={handleSearch} />
           </View>
-          <View style={[styles.scrollContainer, { marginBottom: '2%' }]}>
+          <View style={styles.scrollContainer}>
             {renderScroll("Favoris", iconFav)}
-            {renderScroll("Historique", iconHist)}
+            <View style={{ marginTop: -30 }}>
+              {renderScroll("Historique", iconHist)}
+            </View>
           </View>
           <View style={styles.buttonContainer}>
           <View style={styles.scan}>
@@ -111,7 +113,7 @@ const styles = StyleSheet.create({
   },
   square: {
     position: 'absolute',
-    bottom: 10,
+    bottom: -10,
     left: 0,
     right: 0,
     backgroundColor: '#ECF0F3',
@@ -125,11 +127,12 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
     marginVertical: 20,
     flex: 1,
+    top: -15,
   },
   scrollContainer: {
     flexDirection: 'column',
     marginHorizontal: 5,
-    marginVertical: 10,
+    marginVertical: 2,
   },
   scroll: {
     height: 165,
@@ -158,7 +161,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 15,
     width: '100%',
     flexDirection: 'row',
-    marginTop: 10,
+    marginTop: -10,
   },
   scan: {
     marginLeft: 10,
