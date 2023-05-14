@@ -1,24 +1,54 @@
 import React, { useState } from 'react';
-import { View, ScrollView, Image, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, ScrollView, Image, Text, StyleSheet, TouchableOpacity } from 'react-native';
 
 type ScrollBarButtonProps = {
+  id: number;
   image: any;
+  name: string;
+  description: string;
+  isFavorite: boolean;
   onPress: () => void;
 };
 
-const ScrollBarButton = ({ image, onPress }: ScrollBarButtonProps) => (
-  <TouchableOpacity style={styles.button} onPress={onPress}>
-    <Image style={styles.image} source={image} resizeMode="cover" />
-  </TouchableOpacity>
-);
+type ScrollBarProps = {
+  buttons: ScrollBarButtonProps[];
+};
 
-const buttons = [
-  { id: 1, image: require('../assets/test1.png'), onPress: () => console.log('Button 1 pressed') },
-  { id: 2, image: require('../assets/test2.png'), onPress: () => console.log('Button 2 pressed') },
-  { id: 3, image: require('../assets/test3.png'), onPress: () => console.log('Button 3 pressed') },
-];
+const ScrollBar = ({ buttons }: ScrollBarProps) => {
+  const [buttonsState, setButtonsState] = useState(buttons);
 
-const ScrollBar = () => {
+  const handleButtonPress = (id: number) => {
+    console.log(`Button ${id} was pressed`);
+  };
+
+  const handleFavoriteIconPress = (id: number) => {
+    const updatedButtons = buttonsState.map(button => {
+      if (button.id === id) {
+        return {
+          ...button,
+          isFavorite: !button.isFavorite
+        };
+      }
+      return button;
+    });
+    setButtonsState(updatedButtons);
+  };
+
+  const ScrollBarButton = ({ id, image, name, description, isFavorite, onPress }: ScrollBarButtonProps) => (
+    <TouchableOpacity style={styles.button} onPress={onPress}>
+      <View style={styles.imageContainer}>
+        <Image style={styles.image} source={image} resizeMode="cover" />
+        <View style={styles.textContainer}>
+          <Text style={styles.name}>{name}</Text>
+          <Text style={styles.description}>{description}</Text>
+          <TouchableOpacity style={styles.favoriteButton} onPress={() => handleFavoriteIconPress(id)}>
+            <Image style={styles.favoriteIcon} source={isFavorite ? require('../assets/like.png') : require('../assets/love.png')} />
+          </TouchableOpacity>
+        </View>
+      </View>
+    </TouchableOpacity>
+  );
+
   const [scrollPosition, setScrollPosition] = useState(0);
 
   const handleScroll = (event: any) => {
@@ -36,8 +66,8 @@ const ScrollBar = () => {
         contentContainerStyle={styles.scrollViewContent}
         bounces={false}
       >
-        {buttons.map((button) => (
-          <ScrollBarButton key={button.id} image={button.image} onPress={button.onPress} />
+        {buttonsState.map((button) => (
+          <ScrollBarButton key={button.id} {...button} onPress={() => handleButtonPress(button.id)} />
         ))}
       </ScrollView>
     </View>
@@ -46,7 +76,7 @@ const ScrollBar = () => {
 
 const styles = StyleSheet.create({
   container: {
-    height: 200,
+    height: '60%',
     marginTop: 10,
   },
   scrollViewContent: {
@@ -61,10 +91,45 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginHorizontal: 10,
   },
+  imageContainer: {
+    position: 'relative',
+    width: '100%',
+  },
   image: {
     width: '100%',
     height: '100%',
     borderRadius: 20,
+  },
+  textContainer: {
+    position: 'absolute',
+    bottom: 0,
+    left: 0,
+    right: 0,
+    paddingHorizontal: 5,
+    paddingBottom: 10,
+  },
+  name: {
+    fontWeight: 'bold',
+    fontSize: 16,
+    color: '#fff',
+  },
+  description: {
+    fontSize: 12,
+    color: '#fff',
+  },
+  favoriteButton: {
+    position: 'absolute',
+    marginTop: -35,
+    right: 15,
+    width: 30,
+    height: 30,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  favoriteIcon: {
+    width: '100%',
+    height: '100%',
+    resizeMode: 'contain',
   },
 });
 

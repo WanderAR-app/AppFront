@@ -19,13 +19,19 @@ const HomePage = () => {
     console.log(`Vous recherchez "${searchText}"`);
   };
 
+  const buttons = [
+    { id: 1, name: "Button 1", description: "This is button 1", image: require("../assets/test1.png"), isFavorite: false, onPress: () => console.log("Button 1 pressed"), },
+    { id: 2, name: "Button 2", description: "This is button 2", image: require("../assets/test2.png"), isFavorite: false, onPress: () => console.log("Button 2 pressed"), },
+    { id: 3, name: "Button 3", description: "This is button 3", image: require("../assets/test3.png"), isFavorite: false, onPress: () => console.log("Button 3 pressed"), },
+  ];
+
   const renderScroll = (title: string, icon: any) => (
     <View style={[styles.scroll]}>
       <View style={styles.titleContainer}>
         <Text style={styles.titre}>{title}</Text>
         <Image source={icon} style={styles.icon} />
       </View>
-      <ScrollBar />
+      <ScrollBar buttons={buttons} />
     </View>
   );
 
