@@ -7,7 +7,7 @@ type ScrollBarButtonProps = {
   name: string;
   description: string;
   isFavorite: boolean;
-  onPress: () => void;
+  onPress?: () => void;
 };
 
 type ScrollBarProps = {
@@ -17,8 +17,8 @@ type ScrollBarProps = {
 const ScrollBar = ({ buttons }: ScrollBarProps) => {
   const [buttonsState, setButtonsState] = useState(buttons);
 
-  const handleButtonPress = (id: number) => {
-    console.log(`Button ${id} was pressed`);
+  const handleButtonPress = (id: number, name: string) => {
+    console.log(`Button ${id} ${name} was pressed`);
   };
 
   const handleFavoriteIconPress = (id: number) => {
@@ -34,7 +34,7 @@ const ScrollBar = ({ buttons }: ScrollBarProps) => {
     setButtonsState(updatedButtons);
   };
 
-  const ScrollBarButton = ({ id, image, name, description, isFavorite, onPress }: ScrollBarButtonProps) => (
+  const ScrollBarButton = ({ id, image, name, description, isFavorite, onPress = () => {} }: ScrollBarButtonProps) => (
     <TouchableOpacity style={styles.button} onPress={onPress}>
       <View style={styles.imageContainer}>
         <Image style={styles.image} source={image} resizeMode="cover" />
@@ -67,7 +67,7 @@ const ScrollBar = ({ buttons }: ScrollBarProps) => {
         bounces={false}
       >
         {buttonsState.map((button) => (
-          <ScrollBarButton key={button.id} {...button} onPress={() => handleButtonPress(button.id)} />
+          <ScrollBarButton key={button.id} {...button} onPress={() => handleButtonPress(button.id, button.name)} />
         ))}
       </ScrollView>
     </View>
@@ -94,6 +94,8 @@ const styles = StyleSheet.create({
   imageContainer: {
     position: 'relative',
     width: '100%',
+    height: '100%',
+    borderRadius: 20,
   },
   image: {
     width: '100%',

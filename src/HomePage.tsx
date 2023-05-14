@@ -19,10 +19,16 @@ const HomePage = () => {
     console.log(`Vous recherchez "${searchText}"`);
   };
 
-  const buttons = [
-    { id: 1, name: "Button 1", description: "This is button 1", image: require("../assets/test1.png"), isFavorite: false, onPress: () => console.log("Button 1 pressed"), },
-    { id: 2, name: "Button 2", description: "This is button 2", image: require("../assets/test2.png"), isFavorite: false, onPress: () => console.log("Button 2 pressed"), },
-    { id: 3, name: "Button 3", description: "This is button 3", image: require("../assets/test3.png"), isFavorite: false, onPress: () => console.log("Button 3 pressed"), },
+  const favoris = [
+    { id: 1, name: "Lounge", description: "607", image: require("../assets/test1.png"), isFavorite: true },
+    { id: 2, name: "Pédago Room", description: "602", image: require("../assets/test2.png"), isFavorite: true },
+    { id: 3, name: "C++ Room", description: "704", image: require("../assets/test3.png"), isFavorite: true },
+  ];
+
+  const historique = [
+    { id: 1, name: "Meet Room", description: "605", image: require("../assets/test4.png"), isFavorite: false },
+    { id: 2, name: "C++ Room", description: "704", image: require("../assets/test3.png"), isFavorite: true },
+    { id: 3, name: "Amphi", description: "RDC", image: require("../assets/test5.png"), isFavorite: false },
   ];
 
   const renderScroll = (title: string, icon: any) => (
@@ -31,7 +37,7 @@ const HomePage = () => {
         <Text style={styles.titre}>{title}</Text>
         <Image source={icon} style={styles.icon} />
       </View>
-      <ScrollBar buttons={buttons} />
+      <ScrollBar buttons={title === "Favoris" ? favoris : historique} />
     </View>
   );
 
