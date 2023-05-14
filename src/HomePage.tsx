@@ -66,7 +66,7 @@ const HomePage = () => {
               <Button icon={require('../assets/home.png')} label="Home" onPress={() => navigation.navigate('Home' as never)} />
             </View>
             <View style={styles.setting}>
-              <Button icon={require('../assets/parametre.png')} label="Setting" onPress={() => navigation.navigate('CguPage' as never)} />
+              <Button icon={require('../assets/parametre.png')} label="Setting" onPress={() => navigation.navigate('SettingPage' as never)} />
             </View>
           </View>
         </View>

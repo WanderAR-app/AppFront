@@ -4,7 +4,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { useTransitionProgress } from 'react-native-screens';
 
 import HomePage from './src/HomePage';
-import CguPage from './src/CguPage';
+import SettingPage from './src/SettingPage';
 
 const Stack = createStackNavigator();
 
@@ -13,7 +13,7 @@ function App() {
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen name="Home" component={HomePage} options={{ headerShown: false }} />
-        <Stack.Screen name="CguPage" component={CguPage} options={{ headerShown: false }} />
+        <Stack.Screen name="SettingPage" component={SettingPage} options={{ headerShown: false }} />
       </Stack.Navigator>
     </NavigationContainer>
   );

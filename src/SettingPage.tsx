@@ -3,7 +3,7 @@ import { ImageBackground, StyleSheet, } from 'react-native';
 
 const backgroundImage = require('../assets/back.png');
 
-const CguPage = () => {
+const SettingPage = () => {
   return (
     <ImageBackground source={backgroundImage} style={styles.backgroundImage}></ImageBackground>
   );
@@ -18,4 +18,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default CguPage;
+export default SettingPage;
