@@ -62,22 +62,20 @@ const SearchBar: React.FC<Props> = ({ onSearch }) => {
 
 const styles = StyleSheet.create({
   container: {
+    flex: 1,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    right: 0,
   },
   BarVer: {
+    flex: 1,
     flexDirection: 'row',
     alignItems: 'center',
     borderWidth: 1,
     borderColor: '#white',
     borderRadius: 30,
     paddingHorizontal: 10,
-    marginHorizontal: 40,
+    marginHorizontal: 10,
     marginVertical: 10,
   },
   zoom: {
@@ -93,7 +91,7 @@ const styles = StyleSheet.create({
     padding: 9,
     fontFamily: 'Roboto',
     fontSize: 16,
-    right: 30
+    right: 0
   },
 });
 

@@ -1,7 +1,6 @@
 import React from 'react';
 import { ImageBackground, StyleSheet, View, Text, Image } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import { useTransitionProgress } from 'react-native-screens';
 
 import SearchBar from './SearchBar';
 import ScrollBar from './ScrollBar';
@@ -125,9 +124,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     paddingHorizontal: 10,
-    marginVertical: 20,
-    flex: 1,
-    top: -15,
+    top: 10,
   },
   scrollContainer: {
     flexDirection: 'column',

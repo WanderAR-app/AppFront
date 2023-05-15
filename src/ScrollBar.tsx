@@ -65,6 +65,7 @@ const ScrollBar = ({ buttons }: ScrollBarProps) => {
         snapToInterval={150}
         contentContainerStyle={styles.scrollViewContent}
         bounces={false}
+        scrollEventThrottle={16}
       >
         {buttonsState.map((button) => (
           <ScrollBarButton key={button.id} {...button} onPress={() => handleButtonPress(button.id, button.name)} />

@@ -2,9 +2,9 @@ import React from 'react';
 import { TouchableOpacity, View, Image, Text, StyleSheet } from 'react-native';
 
 type Props = {
-  icon: any; // L'icône du bouton
-  label: string; // Le texte en dessous de l'icône
-  onPress?: () => void; // Fonction à appeler lorsque le bouton est pressé
+  icon: any;
+  label: string;
+  onPress?: () => void;
 };
 
 const Button = ({ icon, label, onPress }: Props) => {
