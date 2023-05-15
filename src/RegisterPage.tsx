@@ -4,19 +4,20 @@ import { useNavigation } from '@react-navigation/native';
 import { Formik } from 'formik';
 import Button from './Button';
 
-const LoginPage = () => {
+const RegisterPage = () => {
 
   const navigation = useNavigation();
 
   type fetchData = {
     Email: string;
     Password: string;
+    Confirm: string;
   }
 
-  const tryConnect = async (data: fetchData) => {
-    console.log('tryConnect');
+  const tryRegister = async (data: fetchData) => {
+    console.log('tryRegister');
     try {
-      const response = await fetch('http://localhost:3000/api/auth/login', {
+      const response = await fetch('http://localhost:3000/api/auth/Register', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -35,8 +36,8 @@ const LoginPage = () => {
     }
   }
 
-  const tryConnectGoogle = () => {
-    console.log('tryConnectGoogle');
+  const tryRegisterGoogle = () => {
+    console.log('tryRegisterGoogle');
   }
 
   let data: FormData = new FormData();
@@ -49,7 +50,7 @@ const LoginPage = () => {
           </View>
           <View>
             <Formik initialValues={{ email: '', password: '' }}
-              onSubmit={values => tryConnect(data = values)}
+              onSubmit={values => tryRegister(data = values)}
             >
               {({ handleChange, handleBlur, handleSubmit, values }) => (
                 <View>
@@ -57,17 +58,19 @@ const LoginPage = () => {
                   <TextInput style={styles.input} placeholder='email@exemple.com' onChangeText={handleChange('email')} onBlur={handleBlur('email')} value={values.email}/>
                   <Text style={styles.text}>Password</Text>
                   <TextInput style={styles.input} placeholder='Password' onChangeText={handleChange('password')} onBlur={handleBlur('password')} value={values.password}/>
-                  <Button title='SIGN IN' onPress={handleSubmit} />
+                  <Text style={styles.text}>Confirm password</Text>
+                  <TextInput style={styles.input} placeholder='Password' onChangeText={handleChange('password')} onBlur={handleBlur('password')} value={values.password}/>
+                  <Button title='SIGN UP' onPress={handleSubmit} />
                 </View>
               )}
             </Formik>
           </View>
           <View>
-            <Button title='SIGN UP' onPress={() => navigation.navigate('Register')} />
+            <Button title='SIGN IN' onPress={() => navigation.navigate('Login')} />
           </View>
           <View style={styles.center}>
             <View style={styles.test}>
-              <Button styleButton={styles.buttonSquare} styleText={styles.buttonSquareText} title='G' onPress={tryConnectGoogle} />
+              <Button styleButton={styles.buttonSquare} styleText={styles.buttonSquareText} title='G' onPress={tryRegisterGoogle} />
             </View>
           </View>
       </View>
@@ -172,4 +175,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default LoginPage;
+export default RegisterPage;

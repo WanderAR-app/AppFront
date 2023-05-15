@@ -4,7 +4,7 @@ import { useNavigation } from '@react-navigation/native';
 import { Formik } from 'formik';
 import Button from './Button';
 
-const LoginPage = () => {
+const AdminLoginPage = () => {
 
   const navigation = useNavigation();
 
@@ -16,7 +16,7 @@ const LoginPage = () => {
   const tryConnect = async (data: fetchData) => {
     console.log('tryConnect');
     try {
-      const response = await fetch('http://localhost:3000/api/auth/login', {
+      const response = await fetch('http://localhost:3000/api/auth/admlogin', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -35,10 +35,6 @@ const LoginPage = () => {
     }
   }
 
-  const tryConnectGoogle = () => {
-    console.log('tryConnectGoogle');
-  }
-
   let data: FormData = new FormData();
 
   return (
@@ -54,21 +50,13 @@ const LoginPage = () => {
               {({ handleChange, handleBlur, handleSubmit, values }) => (
                 <View>
                   <Text style={styles.text}>Email</Text>
-                  <TextInput style={styles.input} placeholder='email@exemple.com' onChangeText={handleChange('email')} onBlur={handleBlur('email')} value={values.email}/>
+                  <TextInput style={styles.input} placeholder='adm-email@exemple.com' onChangeText={handleChange('email')} onBlur={handleBlur('email')} value={values.email}/>
                   <Text style={styles.text}>Password</Text>
                   <TextInput style={styles.input} placeholder='Password' onChangeText={handleChange('password')} onBlur={handleBlur('password')} value={values.password}/>
                   <Button title='SIGN IN' onPress={handleSubmit} />
                 </View>
               )}
             </Formik>
-          </View>
-          <View>
-            <Button title='SIGN UP' onPress={() => navigation.navigate('Register')} />
-          </View>
-          <View style={styles.center}>
-            <View style={styles.test}>
-              <Button styleButton={styles.buttonSquare} styleText={styles.buttonSquareText} title='G' onPress={tryConnectGoogle} />
-            </View>
           </View>
       </View>
   );
@@ -172,4 +160,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default LoginPage;
+export default AdminLoginPage;
