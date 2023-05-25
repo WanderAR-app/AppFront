@@ -1,5 +1,5 @@
 import React from 'react';
-import { ImageBackground, StyleSheet, View, Text, Image, TouchableOpacity, Dimensions } from 'react-native';
+import { ImageBackground, StyleSheet, View, Text, Image, TouchableOpacity, Dimensions, ScrollView } from 'react-native';
 
 const backgroundImage = require('../assets/back.png');
 const { width, height } = Dimensions.get('window');
@@ -17,18 +17,26 @@ const CguPage = () => {
     <ImageBackground source={backgroundImage} style={styles.backgroundImage}>
       <View style={styles.container}>
         <Image source={require('../assets/WanderAR.png')} style={styles.logo} />
-        <View style={styles.rectangle}>
-          <Text style={styles.titre}>Condition générales{'\n'}d'utilisation</Text>
-          <Text style={styles.texte}>Wander AR est une application de guidage en intérieur disponible dans les bâtiments utilisant nos services.</Text>
-          <Text style={styles.texte}>Les conditions générales d’utilisation peuvent être changées à tout moment. Pour les consulter ou être notifié de tout changement, allez à Paramètres/Politique de confidentialité.</Text>
-          <View style={styles.buttonsContainer}>
-            <TouchableOpacity onPress={handleAccept} style={[styles.button, styles.acceptButton]}>
-              <Text style={styles.acceptTexte}>Accepter</Text>
-            </TouchableOpacity>
-            <TouchableOpacity onPress={handleRefuse} style={[styles.button, styles.refuseButton]}>
-              <Text style={styles.refuseTexte}>Refuser</Text>
-            </TouchableOpacity>
-          </View>
+        <View style={styles.square}>
+          <ScrollView contentContainerStyle={styles.scrollViewContent}>
+            <Text style={styles.titre}>
+              Condition générales{'\n'}d'utilisation
+            </Text>
+            <Text style={styles.text}>
+              Wander AR est une application de guidage en intérieur disponible dans les bâtiments utilisant nos services.
+            </Text>
+            <Text style={styles.text}>
+              Les conditions générales d’utilisation peuvent être changées à tout moment. Pour les consulter ou être notifié de tout changement, allez à Paramètres/Politique de confidentialité.
+            </Text>
+            <View style={styles.buttonsContainer}>
+              <TouchableOpacity onPress={handleAccept} style={styles.acceptButton}>
+                <Text style={styles.acceptTexte}>Accepter</Text>
+              </TouchableOpacity>
+              <TouchableOpacity onPress={handleRefuse} style={styles.refuseButton}>
+                <Text style={styles.refuseTexte}>Refuser</Text>
+              </TouchableOpacity>
+            </View>
+          </ScrollView>
         </View>
       </View>
     </ImageBackground>
@@ -53,48 +61,51 @@ const styles = StyleSheet.create({
     left: '50%',
     transform: [{translateY: -height * 0.4}, {translateX: -width * 0.25}],
   },
-  rectangle: {
-    backgroundColor: 'rgba(255, 255, 255, 0.7)',
-    borderRadius: 16,
-    position: 'absolute',
-    width: '90%',
-    aspectRatio: 0.8,
-    top: '25%',
-    left: '5%',
+  square: {
+    backgroundColor: 'rgba(255, 255, 255, 0.8)',
+    width: width * 0.9,
+    aspectRatio: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderRadius: 15,
+  },
+  scrollViewContent: {
+    flexGrow: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding: 20,
   },
   titre: {
     fontSize: 20,
     textAlign: 'center',
     fontFamily: 'Roboto',
     fontWeight: '700',
-    lineHeight: 25,
-    marginTop: '5%',
+    marginBottom: 15,
   },
-  texte: {
+  text: {
     fontSize: 15,
-    lineHeight: 18,
-    fontWeight: '400',
     fontStyle: 'italic',
+    fontWeight: '400',
     marginTop: '2%',
-    marginRight: '5%',
-    marginLeft: '5%',
+    marginBottom: 10,
   },
   buttonsContainer: {
     flexDirection: 'column',
-    width: '65%',
+    width: '80%',
     alignSelf: 'center',
-    marginTop: '1%',
+    marginTop: 10,
   },
-  button: {
+  acceptButton: {
     borderRadius: 16,
     paddingVertical: 10,
     alignItems: 'center',
     marginVertical: 5,
-    backgroundColor: '#0000',
     marginTop: 15,
-  },
-  acceptButton: {
     backgroundColor: 'rgba(125, 169, 241, 0.9)',
+    shadowColor: "#D1D9E6",
+    shadowOffset: { width: 4, height: 4 },
+    shadowOpacity: 1,
+    shadowRadius: 5,
   },
   acceptTexte: {
     color: '#ecf0f3',
@@ -102,7 +113,16 @@ const styles = StyleSheet.create({
     fontStyle: 'italic',
   },
   refuseButton: {
-    backgroundColor: 'rgba(255, 255, 255, 0.7)',
+    borderRadius: 16,
+    paddingVertical: 10,
+    alignItems: 'center',
+    marginVertical: 5,
+    marginTop: 15,
+    backgroundColor: "#ECF0F3",
+    shadowColor: "#D1D9E6",
+    shadowOffset: { width: 4, height: 4 },
+    shadowOpacity: 1,
+    shadowRadius: 5,
   },
   refuseTexte: {
     color: '#638ef1',
