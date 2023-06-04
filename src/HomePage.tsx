@@ -5,6 +5,7 @@ import { useNavigation } from '@react-navigation/native';
 import SearchBar from './SearchBar';
 import ScrollBar from './ScrollBar';
 import Button from './Button';
+import HelloScare from './HelloScare';
 
 const backgroundImage = require('../assets/back.png');
 const iconFav = require('../assets/favoris.png');
@@ -43,10 +44,7 @@ const HomePage = () => {
   return (
     <ImageBackground source={backgroundImage} style={styles.backgroundImage}>
       <View style={styles.container}>
-        <View style={styles.rectangleWelcome}>
-          <Text style={styles.welcome}>Bienvenue{'\n'}à</Text>
-          <Text style={styles.place}>Epitech</Text>
-        </View>
+        <HelloScare />
         <View style={styles.square}>
           <View style={styles.searchBarContainer}>
             <SearchBar onSearch={handleSearch} />
@@ -86,29 +84,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     paddingBottom: 20,
-  },
-  rectangleWelcome: {
-    alignItems: 'center',
-    marginVertical: '2%',
-    paddingHorizontal: '15%',
-    paddingVertical: '3%',
-    top: '-28%',
-    padding: '2%',
-    borderRadius: 16,
-    backgroundColor: 'rgba(255, 255, 255, 0.7)',
-    backgroundImage: 'linear-gradient(112.95deg, rgba(255, 255, 255, 0.7) 5.38%, rgba(255, 255, 255, 0.1) 94.4%)',
-    justifyContent: 'center',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    fontFamily: 'Roboto',
-  },
-  place: {
-    fontSize: 24,
-    textAlign: 'center',
-    fontWeight: 'bold',
-    fontFamily: 'Roboto',
   },
   square: {
     position: 'absolute',
