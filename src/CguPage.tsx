@@ -1,22 +1,24 @@
 import React from 'react';
-import { ImageBackground, StyleSheet, View, Text, Image, TouchableOpacity, Dimensions, ScrollView } from 'react-native';
+import { ImageBackground, StyleSheet, View, Text, Image, TouchableOpacity, Dimensions, ScrollView, BackHandler } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 
 const backgroundImage = require('../assets/back.png');
-const { width, height } = Dimensions.get('window');
+const logoImage = require('../assets/WanderAR.png');
+const { width: windowWidth, height: windowHeight } = Dimensions.get('window');
+
 
 const CguPage = () => {
-  const handleAccept = () => {
-    console.log('Accepter');
-  };
+
+  const navigation = useNavigation();
 
   const handleRefuse = () => {
-    console.log('Refuser');
+    BackHandler.exitApp();
   };
 
   return (
     <ImageBackground source={backgroundImage} style={styles.backgroundImage}>
       <View style={styles.container}>
-        <Image source={require('../assets/WanderAR.png')} style={styles.logo} />
+        <Image source={logoImage} style={styles.logo} />
         <View style={styles.square}>
           <ScrollView contentContainerStyle={styles.scrollViewContent}>
             <Text style={styles.titre}>
@@ -29,7 +31,7 @@ const CguPage = () => {
               Les conditions générales d’utilisation peuvent être changées à tout moment. Pour les consulter ou être notifié de tout changement, allez à Paramètres/Politique de confidentialité.
             </Text>
             <View style={styles.buttonsContainer}>
-              <TouchableOpacity onPress={handleAccept} style={styles.acceptButton}>
+              <TouchableOpacity onPress={() => navigation.navigate('Home' as never)} style={styles.acceptButton}>
                 <Text style={styles.acceptTexte}>Accepter</Text>
               </TouchableOpacity>
               <TouchableOpacity onPress={handleRefuse} style={styles.refuseButton}>
@@ -59,11 +61,11 @@ const styles = StyleSheet.create({
     position: 'absolute',
     top: '50%',
     left: '50%',
-    transform: [{translateY: -height * 0.4}, {translateX: -width * 0.25}],
+    transform: [{translateY: -windowHeight * 0.4}, {translateX: -windowWidth * 0.25}],
   },
   square: {
     backgroundColor: 'rgba(255, 255, 255, 0.8)',
-    width: width * 0.9,
+    width: windowWidth * 0.9,
     aspectRatio: 1,
     justifyContent: 'center',
     alignItems: 'center',
