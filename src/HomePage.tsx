@@ -4,8 +4,9 @@ import { useNavigation } from '@react-navigation/native';
 
 import SearchBar from './SearchBar';
 import ScrollBar from './ScrollBar';
-import Button from './Button';
+// import Button from './Button';
 import HelloScare from './HelloScare';
+import NavigationBar from './NavigationBar';
 
 const backgroundImage = require('../assets/back.png');
 const iconFav = require('../assets/favoris.png');
@@ -55,17 +56,7 @@ const HomePage = () => {
               {renderScroll("Historique", iconHist)}
             </View>
           </View>
-          <View style={styles.buttonContainer}>
-          <View style={styles.scan}>
-              <Button icon={require('../assets/scan.png')} label="Scan QR" onPress={() => navigation.navigate('Scan' as never)} />
-            </View>
-            <View style={styles.home}>
-              <Button icon={require('../assets/home.png')} label="Home" onPress={() => navigation.navigate('Home' as never)} />
-            </View>
-            <View style={styles.setting}>
-              <Button icon={require('../assets/parametre.png')} label="Setting" onPress={() => navigation.navigate('SettingPage' as never)} />
-            </View>
-          </View>
+          <NavigationBar navigation={navigation} />
         </View>
       </View>
     </ImageBackground>
@@ -124,26 +115,6 @@ const styles = StyleSheet.create({
   icon: {
     marginLeft: 5,
   },
-  buttonContainer: {
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    backgroundColor: '#ECF0F3',
-    borderRadius: 10,
-    paddingVertical: 10,
-    paddingHorizontal: 15,
-    width: '100%',
-    flexDirection: 'row',
-    marginTop: -10,
-  },
-  scan: {
-    marginLeft: 10,
-  },
-  home: {
-    marginLeft: 10,
-  },
-  setting: {
-    marginLeft: 10,
-  }
 });
 
 export default HomePage;
