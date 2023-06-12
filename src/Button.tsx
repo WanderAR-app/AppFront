@@ -1,52 +1,48 @@
 import React from 'react';
-import { Text, Pressable, StyleSheet } from 'react-native';
+import { TouchableOpacity, View, Image, Text, StyleSheet } from 'react-native';
 
-type ButtonProps = {
-    onPress: () => void;
-    title?: string;
-    styleButton?: object;
-    styleText?: object;
-    disabled?: boolean;
-    children?: any;
+type Props = {
+  icon: any;
+  label: string;
+  onPress?: () => void;
 };
 
-export default function Button(props: ButtonProps) {
-
-  if (!props.title)
-    props.title = '';
-
+const Button = ({ icon, label, onPress }: Props) => {
   return (
-    <Pressable
-      style={props.styleButton ? props.styleButton : styles.button}
-      onPress={props.onPress} 
-      disabled={props.disabled}
-    >
-      <Text style={props.styleText ? props.styleText : styles.text}>{props.title}</Text>
-      {props.children}
-    </Pressable>
+    <TouchableOpacity style={styles.container} onPress={onPress}>
+      <View style={styles.iconContainer}>
+        <Image source={icon} style={styles.icon} />
+      </View>
+      <Text style={styles.label}>{label}</Text>
+    </TouchableOpacity>
   );
-}
+};
 
 const styles = StyleSheet.create({
-  button: {
+  container: {
     alignItems: 'center',
-    justifyContent: 'center',
-    paddingVertical: 12,
-    paddingHorizontal: 32,
-    marginTop: "5%",
-    borderRadius: 16,
-    backgroundColor: "#ECF0F3",
-    shadowColor: "#D1D9E6",
-    shadowOffset: { width: 4, height: 4 },
+  },
+  iconContainer: {
+    borderRadius: 5,
+    padding: 10,
+    marginBottom: 5,
+    shadowColor: '#D1D9E6',
+    shadowOffset: { width: 2, height: 2 },
     shadowOpacity: 1,
     shadowRadius: 5,
-    width: 200,
-    marginBottom: "5%",
+    elevation: 2,
+    backgroundColor: '#black'
   },
-  text: {
-    fontSize: 16,
-    lineHeight: 21,
-    fontWeight: 'bold',
-    letterSpacing: 0.25,
+  icon: {
+    width: 30,
+    height: 30,
+    resizeMode: 'contain',
+  },
+  label: {
+    fontSize: 14,
+    fontFamily: 'Roboto',
+    textAlign: 'center',
   },
 });
+
+export default Button;
