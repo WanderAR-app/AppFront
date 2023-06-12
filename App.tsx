@@ -13,9 +13,9 @@ function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
+        <Stack.Screen name="Cgu" component={CguPage} options={{ headerShown: false }} />
         <Stack.Screen name="Home" component={HomePage} options={{ headerShown: false }} />
         <Stack.Screen name="SettingPage" component={SettingPage} options={{ headerShown: false }} />
-        <Stack.Screen name="Cgu" component={CguPage} options={{ headerShown: false }} />
       </Stack.Navigator>
     </NavigationContainer>
   );
