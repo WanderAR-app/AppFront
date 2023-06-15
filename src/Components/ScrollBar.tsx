@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { View, ScrollView, Image, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import styleReference from './Style';
 
 type ScrollBarButtonProps = {
   id: number;
@@ -38,12 +39,12 @@ const ScrollBar = ({ buttons }: ScrollBarProps) => {
     <TouchableOpacity style={styles.button} onPress={onPress}>
       <View style={styles.imageContainer}>
         <Image style={styles.image} source={image} resizeMode="cover" />
+          <TouchableOpacity style={styles.likeButton} onPress={() => handleFavoriteIconPress(id)}>
+            <Image style={styles.likeIcon} source={isFavorite ? require('../../assets/like.png') : require('../../assets/love.png')} />
+          </TouchableOpacity>
         <View style={styles.textContainer}>
           <Text style={styles.name}>{name}</Text>
           <Text style={styles.description}>{description}</Text>
-          <TouchableOpacity style={styles.likeButton} onPress={() => handleFavoriteIconPress(id)}>
-            <Image style={styles.likeIcon} source={isFavorite ? require('../assets/like.png') : require('../assets/love.png')} />
-          </TouchableOpacity>
         </View>
       </View>
     </TouchableOpacity>
@@ -80,16 +81,16 @@ const styles = StyleSheet.create({
     height: '60%',
   },
   scrollViewContent: {
-    paddingHorizontal: 10,
+    paddingHorizontal: styleReference.Padding8,
   },
   button: {
     width: 150,
     height: 100,
-    borderRadius: 20,
-    backgroundColor: '#ddd',
+    borderRadius: styleReference.BorderRadius8,
+    backgroundColor: styleReference.ColorShadow,
     justifyContent: 'center',
     alignItems: 'center',
-    marginHorizontal: 10,
+    marginRight: styleReference.Marging16,    
   },
   imageContainer: {
     position: 'relative',
@@ -101,12 +102,9 @@ const styles = StyleSheet.create({
     borderRadius: 20,
   },
   textContainer: {
-    position: 'absolute',
-    bottom: 0,
-    left: 0,
-    right: 0,
-    paddingHorizontal: 5,
-    paddingBottom: 10,
+    flex: 1,
+    alignContent: 'flex-end',
+    padding: styleReference.Padding8,
   },
   name: {
     fontWeight: 'bold',

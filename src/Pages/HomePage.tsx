@@ -1,15 +1,16 @@
 import React from 'react';
 import { ImageBackground, StyleSheet, View, Text, Image } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+import styleReference from '../Components/Style';
 
-import SearchBar from './SearchBar';
-import ScrollBar from './ScrollBar';
-import Button from './Button';
-import HelloScare from './HelloScare';
+import SearchBar from '../Components/SearchBar';
+import ScrollBar from '../Components/ScrollBar';
+import Button from '../Components/Button';
+import HelloScare from '../Components/HelloScare';
 
-const backgroundImage = require('../assets/back.png');
-const iconFav = require('../assets/favoris.png');
-const iconHist = require('../assets/historique.png');
+const backgroundImage = require('../../assets/back.png');
+const iconFav = require('../../assets/favoris.png');
+const iconHist = require('../../assets/historique.png');
 
 const HomePage = () => {
 
@@ -20,15 +21,15 @@ const HomePage = () => {
   };
 
   const favoris = [
-    { id: 1, name: "Lounge", description: "607", image: require("../assets/test1.png"), isFavorite: true },
-    { id: 2, name: "Pédago Room", description: "602", image: require("../assets/test2.png"), isFavorite: true },
-    { id: 3, name: "C++ Room", description: "704", image: require("../assets/test3.png"), isFavorite: true },
+    { id: 1, name: "Lounge", description: "607", image: require("../../assets/test1.png"), isFavorite: true },
+    { id: 2, name: "Pédago Room", description: "602", image: require("../../assets/test2.png"), isFavorite: true },
+    { id: 3, name: "C++ Room", description: "704", image: require("../../assets/test3.png"), isFavorite: true },
   ];
 
   const historique = [
-    { id: 1, name: "Meet Room", description: "605", image: require("../assets/test4.png"), isFavorite: false },
-    { id: 2, name: "C++ Room", description: "704", image: require("../assets/test3.png"), isFavorite: true },
-    { id: 3, name: "Amphi", description: "RDC", image: require("../assets/test5.png"), isFavorite: false },
+    { id: 1, name: "Meet Room", description: "605", image: require("../../assets/test4.png"), isFavorite: false },
+    { id: 2, name: "C++ Room", description: "704", image: require("../../assets/test3.png"), isFavorite: true },
+    { id: 3, name: "Amphi", description: "RDC", image: require("../../assets/test5.png"), isFavorite: false },
   ];
 
   const renderScroll = (title: string, icon: any) => (
@@ -57,13 +58,13 @@ const HomePage = () => {
           </View>
           <View style={styles.buttonContainer}>
           <View style={styles.scan}>
-              <Button icon={require('../assets/scan.png')} label="Scan QR" onPress={() => navigation.navigate('Scan' as never)} />
+              <Button icon={require('../../assets/scan.png')} label="Scan QR" onPress={() => navigation.navigate('Scan' as never)} />
             </View>
             <View style={styles.home}>
-              <Button icon={require('../assets/home.png')} label="Home" onPress={() => navigation.navigate('Home' as never)} />
+              <Button icon={require('../../assets/home.png')} label="Home" onPress={() => navigation.navigate('Home' as never)} />
             </View>
             <View style={styles.setting}>
-              <Button icon={require('../assets/parametre.png')} label="Setting" onPress={() => navigation.navigate('SettingPage' as never)} />
+              <Button icon={require('../../assets/parametre.png')} label="Setting" onPress={() => navigation.navigate('SettingPage' as never)} />
             </View>
           </View>
         </View>
@@ -119,7 +120,7 @@ const styles = StyleSheet.create({
   titre: {
     fontSize: 18,
     fontWeight: 'bold',
-    fontFamily: 'Roboto',
+    fontFamily: styleReference.FontFamily,
   },
   icon: {
     marginLeft: 5,

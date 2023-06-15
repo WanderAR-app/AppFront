@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet, View, Text, TextInput, Image } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { Formik } from 'formik';
-import Button from './Button';
+import Button from '../Components/Button';
 
 const LoginPage = () => {
 
@@ -45,7 +45,7 @@ const LoginPage = () => {
       <View style={styles.container}>
           <View>
             <Text style={styles.title}>Welcome in</Text>
-            <Image style={styles.logo} source={require('../assets/WanderAR.png')} />
+            <Image style={styles.logo} source={require('../../assets/WanderAR.png')} />
           </View>
           <View>
             <Formik initialValues={{ email: '', password: '' }}
@@ -88,6 +88,7 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 20,
     fontWeight: 'bold',
+    fontFamily: 'Century Gothic',
     color: '#000',
     textAlign: 'center',
   },
