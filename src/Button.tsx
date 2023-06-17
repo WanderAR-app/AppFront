@@ -23,15 +23,13 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   iconContainer: {
-    borderRadius: 5,
-    padding: 10,
-    marginBottom: 5,
+    borderRadius: 8,
+    padding: 8,
+    marginBottom: 8,
     shadowColor: '#D1D9E6',
     shadowOffset: { width: 2, height: 2 },
-    shadowOpacity: 1,
     shadowRadius: 5,
     elevation: 2,
-    backgroundColor: '#black'
   },
   icon: {
     width: 30,
@@ -40,7 +38,7 @@ const styles = StyleSheet.create({
   },
   label: {
     fontSize: 14,
-    fontFamily: 'Roboto',
+    fontFamily: 'Century Gothic',
     textAlign: 'center',
   },
 });

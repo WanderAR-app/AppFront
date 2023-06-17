@@ -1,7 +1,6 @@
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import { useTransitionProgress } from 'react-native-screens';
 
 import HomePage from './src/HomePage';
 import SettingPage from './src/SettingPage';

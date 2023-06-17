@@ -45,7 +45,7 @@ const SearchBar: React.FC<Props> = ({ onSearch }) => {
         <TextInput
           ref={textInputRef}
           style={styles.BarHor}
-          placeholder="Recherche..."
+          placeholder="Rechercher ..."
           onChangeText={setSearchText}
           value={searchText}
           onSubmitEditing={handleSearch}
@@ -71,25 +71,27 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'row',
     alignItems: 'center',
-    borderWidth: 1,
-    borderColor: '#white',
     borderRadius: 30,
     paddingHorizontal: 10,
     marginHorizontal: 10,
     marginVertical: 10,
+    borderWidth: 0,
+    shadowColor: '#D1D9E6',
+    shadowOffset: { width: 2, height: 2 },
+    shadowRadius: 5,
   },
   zoom: {
     marginHorizontal: 10,
   },
   BarHor: {
     flex: 1,
-    height:35,
+    height: 35,
   },
   buttonMicro: {
     backgroundColor: '#0066CC',
     borderRadius: 50,
     padding: 9,
-    fontFamily: 'Roboto',
+    fontFamily: 'Century Gothic',
     fontSize: 16,
     right: 0
   },

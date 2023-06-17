@@ -110,7 +110,7 @@ const styles = StyleSheet.create({
   titre: {
     fontSize: 18,
     fontWeight: 'bold',
-    fontFamily: 'Roboto',
+    fontFamily: 'Century Gothic',
   },
   icon: {
     marginLeft: 5,
