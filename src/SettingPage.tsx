@@ -1,7 +1,7 @@
 import React from 'react';
 import { ImageBackground, StyleSheet, } from 'react-native';
 
-const backgroundImage = require('../assets/back.png');
+const backgroundImage = require('../assets/back.svg');
 
 const SettingPage = () => {
   return (

@@ -7,13 +7,13 @@ const NavigationBar = ({ navigation }: { navigation: any }) => {
   return (
     <View style={styles.buttonContainer}>
       <View style={styles.scan}>
-        <Button icon={require('../assets/scan.png')} label="Scan QR" onPress={() => navigation.navigate('Scan')} />
+        <Button icon={require('../assets/scan.svg')} label="Scan QR" onPress={() => navigation.navigate('Scan')} />
       </View>
       <View style={styles.home}>
-        <Button icon={require('../assets/home.png')} label="Home" onPress={() => navigation.navigate('Home')} />
+        <Button icon={require('../assets/home.svg')} label="Home" onPress={() => navigation.navigate('Home')} />
       </View>
       <View style={styles.setting}>
-        <Button icon={require('../assets/parametre.png')} label="Setting" onPress={() => navigation.navigate('SettingPage')} />
+        <Button icon={require('../assets/parametre.svg')} label="Setting" onPress={() => navigation.navigate('SettingPage')} />
       </View>
     </View>
   );

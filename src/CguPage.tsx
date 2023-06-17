@@ -2,8 +2,8 @@ import React from 'react';
 import { ImageBackground, StyleSheet, View, Text, Image, TouchableOpacity, Dimensions, ScrollView, BackHandler } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
-const backgroundImage = require('../assets/back.png');
-const logoImage = require('../assets/WanderAR.png');
+const backgroundImage = require('../assets/back.svg');
+const logoImage = require('../assets/WanderAR.svg');
 const { width: windowWidth, height: windowHeight } = Dimensions.get('window');
 
 
@@ -59,9 +59,9 @@ const styles = StyleSheet.create({
   },
   logo: {
     position: 'absolute',
-    top: '50%',
-    left: '50%',
-    transform: [{translateY: -windowHeight * 0.4}, {translateX: -windowWidth * 0.25}],
+    marginTop: -600,
+    width: 300,
+    height: 100,
   },
   square: {
     backgroundImage: 'linear-gradient(112.95deg, rgba(255, 255, 255, 0.7) 10%, rgba(255, 255, 255, 0.1) 70%)',

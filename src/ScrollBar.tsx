@@ -42,7 +42,7 @@ const ScrollBar = ({ buttons }: ScrollBarProps) => {
           <Text style={styles.name}>{name}</Text>
           <Text style={styles.description}>{description}</Text>
           <TouchableOpacity style={styles.likeButton} onPress={() => handleFavoriteIconPress(id)}>
-            <Image style={styles.likeIcon} source={isFavorite ? require('../assets/like.png') : require('../assets/love.png')} />
+            <Image style={styles.likeIcon} source={isFavorite ? require('../assets/like.svg') : require('../assets/love.svg')} />
           </TouchableOpacity>
         </View>
       </View>

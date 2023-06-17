@@ -4,13 +4,12 @@ import { useNavigation } from '@react-navigation/native';
 
 import SearchBar from './SearchBar';
 import ScrollBar from './ScrollBar';
-// import Button from './Button';
 import HelloScare from './HelloScare';
 import NavigationBar from './NavigationBar';
 
-const backgroundImage = require('../assets/back.png');
-const iconFav = require('../assets/favoris.png');
-const iconHist = require('../assets/historique.png');
+const backgroundImage = require('../assets/back.svg');
+const iconFav = require('../assets/favoris.svg');
+const iconHist = require('../assets/historique.svg');
 
 const HomePage = () => {
 
