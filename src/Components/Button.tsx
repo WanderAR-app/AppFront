@@ -3,19 +3,52 @@ import { TouchableOpacity, View, Image, Text } from 'react-native';
 import styles from './ButtonStyle';
 
 type Props = {
-  icon: any;
-  label: string;
+  icon?: any;
+  label?: string;
+  title?: string;
+  iconStyle?: any;
+  labelStyle?: any;
+  titleStyle?: any;
+  containerStyle?: any;
+
   onPress?: () => void;
 };
 
-const Button = ({ icon, label, onPress }: Props) => {
+const iconFunc = (icon?: any, iconStyle?: any ) => {
+  if (icon) {
+    return <Image source={icon}/>;
+  }
+};
+
+const labelFunc = (label?: string, labelStyle?: any) => {
+  if (label) {
+    return <Text>{label}</Text>;
+  }
+}
+
+const titleFunc = (title?: string, titleStyle?: any) => {
+  if (title) {
+    return <Text style={titleStyle}>{title}</Text>;
+  }
+}
+
+const Button = ({ icon, label, title, iconStyle, labelStyle, titleStyle, containerStyle, onPress }: Props) => {
+  let container = styles.container;
+  if (containerStyle)
+    container = containerStyle;
+
   return (
-    <TouchableOpacity style={styles.container} onPress={onPress}>
-      <View style={styles.iconContainer}>
-        <Image source={icon} style={styles.icon} />
+    <View>
+      <View style={{...styles.ShadowTop, borderRadius: container.borderRadius, backgroundColor: container.backgroundColor}} >
+        <View style={{...styles.ShadowBottom, borderRadius: container.borderRadius, backgroundColor: container.backgroundColor, backgroundImage: container.backgroundImage}}>
+          <TouchableOpacity style={{...container, backgroundImage: '', backgroundColor: ''}} onPress={onPress}>
+            {titleFunc(title, titleStyle)}
+            {iconFunc(icon, iconStyle)}
+          </TouchableOpacity>
+        </View>
       </View>
-      <Text style={styles.label}>{label}</Text>
-    </TouchableOpacity>
+      {labelFunc(label, labelStyle)}
+    </View>
   );
 };
 

@@ -90,7 +90,7 @@ const styles = StyleSheet.create({
     backgroundColor: styleReference.ColorShadow,
     justifyContent: 'center',
     alignItems: 'center',
-    marginRight: styleReference.Marging16,    
+    marginRight: styleReference.Margin16,    
   },
   imageContainer: {
     position: 'relative',

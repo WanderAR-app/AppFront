@@ -3,6 +3,7 @@ import { StyleSheet, View, Text, TextInput, Image } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { Formik } from 'formik';
 import Button from '../Components/Button';
+import styleReference from '../Components/Style';
 
 const LoginPage = () => {
 
@@ -57,18 +58,16 @@ const LoginPage = () => {
                   <TextInput style={styles.input} placeholder='email@exemple.com' onChangeText={handleChange('email')} onBlur={handleBlur('email')} value={values.email}/>
                   <Text style={styles.text}>Password</Text>
                   <TextInput style={styles.input} placeholder='Password' onChangeText={handleChange('password')} onBlur={handleBlur('password')} value={values.password}/>
-                  <Button title='SIGN IN' onPress={handleSubmit} />
+                  <Button title='SIGN IN' titleStyle={styles.buttonYesText} containerStyle={styles.buttonYes} onPress={handleSubmit} />
                 </View>
               )}
             </Formik>
           </View>
           <View>
-            <Button title='SIGN UP' onPress={() => navigation.navigate('Register')} />
+            <Button title="SIGN UP" titleStyle={styles.buttonNoText} containerStyle={styles.buttonNo} onPress={() => navigation.navigate('Register')} />
           </View>
           <View style={styles.center}>
-            <View style={styles.test}>
-              <Button styleButton={styles.buttonSquare} styleText={styles.buttonSquareText} title='G' onPress={tryConnectGoogle} />
-            </View>
+            <Button icon={require('../../assets/google.png')} label="" onPress={() => navigation.navigate('Home')} />
           </View>
       </View>
   );
@@ -120,50 +119,42 @@ const styles = StyleSheet.create({
     marginBottom: "5%",
   },
   buttonYes: {
-    flex: 1,
-    margin: 10,
-    borderRadius: 24,
-    backgroundColor: "#ECF0F3",
-    shadowColor: "#D1D9E6",
-    shadowOffset: { width: 4, height: 4 },
-    shadowOpacity: 1,
-    shadowRadius: 5,
+    borderRadius: styleReference.BorderRadius16,
+    marginHorizontal: styleReference.Margin64,
+    marginVertical: styleReference.Margin12,
+    backgroundColor: styleReference.ColorBackground,
+    backgroundImage: 'linear-gradient(112.95deg, rgba(23, 88, 241, 1) 10%, rgba(54, 216, 224, 1) 70%)',
   },
   buttonNo: {
-    flex: 1,
-    borderRadius: 24,
-    backgroundColor: "#ECF0F3",
-    shadowColor: "#D1D9E6",
-    shadowOffset: { width: 4, height: 4 },
-    shadowOpacity: 1,
-    shadowRadius: 5,
+    borderRadius: styleReference.BorderRadius16,
+    marginHorizontal: styleReference.Margin64,
+    marginVertical: styleReference.Margin12,
   },
   buttonYesText: {
-    flex: 1,
+    fontSize: 20,
+    fontWeight: 'bold',
+    fontFamily: 'Century Gothic',
+    color: styleReference.ColorBackground,
+    textAlign: 'center',
   },
   buttonNoText: {
-    flex: 1,
+    fontSize: 20,
+    fontWeight: 'bold',
+    fontFamily: 'Century Gothic',
+    color: styleReference.ColorGrey,
+    textAlign: 'center',
   },
   buttonSquare: {
     flex: 1,
-    height: 50,
-    width: 50,
+    height: "100%",
+    width: "100%",
     borderRadius: 16,
-    backgroundColor: "#ECF0F3",
-    shadowColor: "#D1D9E6",
-    shadowOffset: { width: 4, height: 4 },
-    shadowOpacity: 1,
-    shadowRadius: 5,
   },
   test: {
     flex: 1,
     height: "100%",
     width: "100%",
     borderRadius: 16,
-    shadowColor: "#FFF",
-    shadowOffset: { width: -4, height: -4 },
-    shadowOpacity: 1,
-    shadowRadius: 5,
   },
   buttonSquareText: {
     flex: 1,
