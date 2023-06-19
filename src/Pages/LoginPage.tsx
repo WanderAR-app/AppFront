@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, View, Text, TextInput, Image } from 'react-native';
+import { StyleSheet, View, Text, TextInput, Image, ImageBackground } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { Formik } from 'formik';
 import Button from '../Components/Button';
@@ -43,42 +43,54 @@ const LoginPage = () => {
   let data: FormData = new FormData();
 
   return (
-    <View style={styles.container}>
-      <View>
-        <Text style={styles.title}>Welcome in</Text>
-        <Image style={styles.logo} source={require('../../assets/WanderAR.png')} />
-      </View>
-      <Text style={styles.error}>invalid email or password</Text>
-      <View>
-        <Formik initialValues={{ email: '', password: '' }}
-          onSubmit={values => tryConnect(data = values)}
-        >
-          {({ handleChange, handleBlur, handleSubmit, values }) => (
-            <View>
-              <Text style={styles.text}>Email</Text>
-                <View style={styles.ShadowTop}>
-                  <View style={styles.ShadowBottom}>
-                    <TextInput style={styles.input} placeholder='email@exemple.com' onChangeText={handleChange('email')} onBlur={handleBlur('email')} value={values.email} />
+    <View style={styles.bgV1}>
+      <ImageBackground source={require('../../assets/bg1.png')} style={styles.bg1}>
+        <View style={styles.bgV2}>
+          <ImageBackground source={require('../../assets/bg2.png')} style={styles.bg2}>
+            <View style={styles.bgV3}>
+              <ImageBackground source={require('../../assets/bg3.png')} style={styles.bg3}>
+                <View style={styles.container}>
+                  <View>
+                    <Text style={styles.title}>Welcome in</Text>
+                    <Image style={styles.logo} source={require('../../assets/WanderAR.png')} />
+                  </View>
+                  <Text style={styles.error}>Invalid email or password</Text>
+                  <View>
+                    <Formik initialValues={{ email: '', password: '' }}
+                      onSubmit={values => tryConnect(data = values)}
+                    >
+                      {({ handleChange, handleBlur, handleSubmit, values }) => (
+                        <View>
+                          <Text style={styles.text}>Email</Text>
+                            <View style={styles.ShadowTop}>
+                              <View style={styles.ShadowBottom}>
+                                <TextInput style={styles.input} placeholder='email@exemple.com' onChangeText={handleChange('email')} onBlur={handleBlur('email')} value={values.email} />
+                              </View>
+                            </View>
+                          <Text style={styles.text}>Password</Text>
+                          <View style={styles.ShadowTop}>
+                            <View style={styles.ShadowBottom}>
+                              <TextInput style={styles.input} placeholder='Password' onChangeText={handleChange('password')} onBlur={handleBlur('password')} value={values.password} />
+                            </View>
+                          </View>
+                          <View style={styles.space}/>
+                          <Button title='SIGN IN' titleStyle={styles.buttonYesText} containerStyle={styles.buttonYes} onPress={handleSubmit} />
+                        </View>
+                      )}
+                    </Formik>
+                  </View>
+                  <View>
+                    <Button title="SIGN UP" titleStyle={styles.buttonNoText} containerStyle={styles.buttonNo} onPress={() => navigation.navigate('Register')} />
+                  </View>
+                  <View style={styles.center}>
+                    <Button icon={require('../../assets/google.png')} containerStyle={styles.square} iconStyle={styles.buttonSquare} label="" onPress={() => navigation.navigate('Home')} />
                   </View>
                 </View>
-              <Text style={styles.text}>Password</Text>
-              <View style={styles.ShadowTop}>
-                <View style={styles.ShadowBottom}>
-                  <TextInput style={styles.input} placeholder='Password' onChangeText={handleChange('password')} onBlur={handleBlur('password')} value={values.password} />
-                </View>
-              </View>
-              <View style={styles.space}/>
-              <Button title='SIGN IN' titleStyle={styles.buttonYesText} containerStyle={styles.buttonYes} onPress={handleSubmit} />
+              </ImageBackground>
             </View>
-          )}
-        </Formik>
-      </View>
-      <View>
-        <Button title="SIGN UP" titleStyle={styles.buttonNoText} containerStyle={styles.buttonNo} onPress={() => navigation.navigate('Register')} />
-      </View>
-      <View style={styles.center}>
-        <Button icon={require('../../assets/google.png')} containerStyle={styles.square} iconStyle={styles.buttonSquare} label="" onPress={() => navigation.navigate('Home')} />
-      </View>
+          </ImageBackground>
+        </View>
+      </ImageBackground>
     </View>
   );
 };
@@ -194,6 +206,35 @@ const styles = StyleSheet.create({
     shadowOpacity: 1,
     padding: styleReference.Padding8,
     borderRadius: styleReference.BorderRadius16,
+  },
+  bg3: {
+    height: "94%",
+    width: "100%",
+    resizeMode: 'cover',
+    paddingTop: 50,
+  },
+  bg2: {
+    top: -10,
+    height: "98%",
+    width: "100%",
+    resizeMode: 'cover',
+  },
+  bg1: {
+    height: "100%",
+    width: "100%",
+    resizeMode: 'cover',
+  },
+  bgV3: {
+    flex: 1,
+    height: "100%",
+  },
+  bgV2: {
+    flex: 1,
+    height: "10%",
+  },
+  bgV1: {
+    flex: 1,
+    height: "100%",
   },
 });
 
