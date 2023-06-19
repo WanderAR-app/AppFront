@@ -43,11 +43,8 @@ const LoginPage = () => {
   let data: FormData = new FormData();
 
   return (
-    <View style={styles.bgV1}>
       <ImageBackground source={require('../../assets/bg1.png')} style={styles.bg1}>
-        <View style={styles.bgV2}>
           <ImageBackground source={require('../../assets/bg2.png')} style={styles.bg2}>
-            <View style={styles.bgV3}>
               <ImageBackground source={require('../../assets/bg3.png')} style={styles.bg3}>
                 <View style={styles.container}>
                   <View>
@@ -87,11 +84,8 @@ const LoginPage = () => {
                   </View>
                 </View>
               </ImageBackground>
-            </View>
           </ImageBackground>
-        </View>
       </ImageBackground>
-    </View>
   );
 };
 
@@ -223,18 +217,7 @@ const styles = StyleSheet.create({
     height: "100%",
     width: "100%",
     resizeMode: 'cover',
-  },
-  bgV3: {
-    flex: 1,
-    height: "100%",
-  },
-  bgV2: {
-    flex: 1,
-    height: "10%",
-  },
-  bgV1: {
-    flex: 1,
-    height: "100%",
+    backgroundColor: styleReference.ColorBackground,
   },
 });
 
