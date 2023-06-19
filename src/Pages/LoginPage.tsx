@@ -43,37 +43,52 @@ const LoginPage = () => {
   let data: FormData = new FormData();
 
   return (
-      <View style={styles.container}>
-          <View>
-            <Text style={styles.title}>Welcome in</Text>
-            <Image style={styles.logo} source={require('../../assets/WanderAR.png')} />
-          </View>
-          <View>
-            <Formik initialValues={{ email: '', password: '' }}
-              onSubmit={values => tryConnect(data = values)}
-            >
-              {({ handleChange, handleBlur, handleSubmit, values }) => (
-                <View>
-                  <Text style={styles.text}>Email</Text>
-                  <TextInput style={styles.input} placeholder='email@exemple.com' onChangeText={handleChange('email')} onBlur={handleBlur('email')} value={values.email}/>
-                  <Text style={styles.text}>Password</Text>
-                  <TextInput style={styles.input} placeholder='Password' onChangeText={handleChange('password')} onBlur={handleBlur('password')} value={values.password}/>
-                  <Button title='SIGN IN' titleStyle={styles.buttonYesText} containerStyle={styles.buttonYes} onPress={handleSubmit} />
-                </View>
-              )}
-            </Formik>
-          </View>
-          <View>
-            <Button title="SIGN UP" titleStyle={styles.buttonNoText} containerStyle={styles.buttonNo} onPress={() => navigation.navigate('Register')} />
-          </View>
-          <View style={styles.center}>
-            <Button icon={require('../../assets/google.png')} iconStyle={styles.buttonSquare} label="" onPress={() => navigation.navigate('Home')} />
-          </View>
+    <View style={styles.container}>
+      <View>
+        <Text style={styles.title}>Welcome in</Text>
+        <Image style={styles.logo} source={require('../../assets/WanderAR.png')} />
       </View>
+      <Text style={styles.error}>invalid email or password</Text>
+      <View>
+        <Formik initialValues={{ email: '', password: '' }}
+          onSubmit={values => tryConnect(data = values)}
+        >
+          {({ handleChange, handleBlur, handleSubmit, values }) => (
+            <View>
+              <Text style={styles.text}>Email</Text>
+                <View style={styles.ShadowTop}>
+                  <View style={styles.ShadowBottom}>
+                    <TextInput style={styles.input} placeholder='email@exemple.com' onChangeText={handleChange('email')} onBlur={handleBlur('email')} value={values.email} />
+                  </View>
+                </View>
+              <Text style={styles.text}>Password</Text>
+              <View style={styles.ShadowTop}>
+                <View style={styles.ShadowBottom}>
+                  <TextInput style={styles.input} placeholder='Password' onChangeText={handleChange('password')} onBlur={handleBlur('password')} value={values.password} />
+                </View>
+              </View>
+              <View style={styles.space}/>
+              <Button title='SIGN IN' titleStyle={styles.buttonYesText} containerStyle={styles.buttonYes} onPress={handleSubmit} />
+            </View>
+          )}
+        </Formik>
+      </View>
+      <View>
+        <Button title="SIGN UP" titleStyle={styles.buttonNoText} containerStyle={styles.buttonNo} onPress={() => navigation.navigate('Register')} />
+      </View>
+      <View style={styles.center}>
+        <Button icon={require('../../assets/google.png')} containerStyle={styles.square} iconStyle={styles.buttonSquare} label="" onPress={() => navigation.navigate('Home')} />
+      </View>
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
+  error: {
+    fontSize: styleReference.FontSize12,
+    color: styleReference.ColorRed,
+    fontFamily: styleReference.FontFamily,
+  },
   container: {
     alignSelf: 'center',
     marginTop: "37%",
@@ -81,13 +96,12 @@ const styles = StyleSheet.create({
   },
   center: {
     alignSelf: 'center',
-    verticalAlign: 'center',
     height: 50,
   },
   title: {
-    fontSize: 20,
+    fontSize: styleReference.FontSize20,
     fontWeight: 'bold',
-    fontFamily: 'Century Gothic',
+    fontFamily: styleReference.FontFamily,
     color: '#000',
     textAlign: 'center',
   },
@@ -100,30 +114,27 @@ const styles = StyleSheet.create({
   },
   text: {
     flex: 1,
-    fontSize: 14,
-    fontWeight: 700,
-    lineHeight: 17,
-    color: "#393b4099",
+    fontSize: styleReference.FontSize14,
+    color: styleReference.ColorGrey,
+    fontFamily: styleReference.FontFamily,
+    fontWeight: 'bold',
     marginTop: "5%",
   },
   input: {
     flex: 1,
     width: "100%",
     height: "100%",
-    borderRadius: 24,
-    backgroundColor: "#ECF0F3",
-    shadowColor: "#D1D9E6",
-    shadowOffset: { width: 4, height: 4 },
-    shadowOpacity: 1,
-    shadowRadius: 5,
-    marginBottom: "5%",
+    fontSize: styleReference.FontSize14,
+    color: styleReference.ColorGrey,
+    fontFamily: styleReference.FontFamily,
+    fontStyle: 'italic',
   },
   buttonYes: {
     borderRadius: styleReference.BorderRadius16,
     marginHorizontal: styleReference.Margin64,
     marginVertical: styleReference.Margin12,
     backgroundColor: styleReference.ColorBackground,
-    backgroundImage: 'linear-gradient(112.95deg, rgba(23, 88, 241, 1) 10%, rgba(54, 216, 224, 1) 70%)',
+    backgroundImage: 'linear-gradient(112.95deg, rgba(23, 88, 241, 1), rgba(54, 216, 224, 1))',
   },
   buttonNo: {
     borderRadius: styleReference.BorderRadius16,
@@ -145,9 +156,13 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   buttonSquare: {
-    width: 30,
-    height: 30,
+    width: 35,
+    height: 35,
     resizeMode: 'contain',
+  },
+  square: {
+    borderRadius: styleReference.BorderRadius16,
+    margin: styleReference.Margin8,
   },
   test: {
     flex: 1,
@@ -160,6 +175,25 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     textAlignVertical: 'center',
     fontSize: 20,
+  },
+  space: {
+    height: 30,
+  },
+  ShadowTop: {
+    shadowColor: styleReference.ColorShadow,
+    shadowOffset: styleReference.ShadowDarkOffset,
+    shadowRadius: styleReference.ShadowBlur,
+    shadowOpacity: 1,
+    marginVertical: styleReference.Margin8,
+    borderRadius: styleReference.BorderRadius16,
+  },
+  ShadowBottom: {
+    shadowColor: styleReference.ColorWhite,
+    shadowOffset: styleReference.ShadowLightOffset,
+    shadowRadius: styleReference.ShadowBlur,
+    shadowOpacity: 1,
+    padding: styleReference.Padding8,
+    borderRadius: styleReference.BorderRadius16,
   },
 });
 

@@ -43,37 +43,37 @@ const RegisterPage = () => {
   let data: FormData = new FormData();
 
   return (
-      <View style={styles.container}>
-          <View>
-            <Text style={styles.title}>Welcome in</Text>
-            <Image style={styles.logo} source={require('../../assets/WanderAR.png')} />
-          </View>
-          <View>
-            <Formik initialValues={{ email: '', password: '' }}
-              onSubmit={values => tryRegister(data = values)}
-            >
-              {({ handleChange, handleBlur, handleSubmit, values }) => (
-                <View>
-                  <Text style={styles.text}>Email</Text>
-                  <TextInput style={styles.input} placeholder='email@exemple.com' onChangeText={handleChange('email')} onBlur={handleBlur('email')} value={values.email}/>
-                  <Text style={styles.text}>Password</Text>
-                  <TextInput style={styles.input} placeholder='Password' onChangeText={handleChange('password')} onBlur={handleBlur('password')} value={values.password}/>
-                  <Text style={styles.text}>Confirm password</Text>
-                  <TextInput style={styles.input} placeholder='Password' onChangeText={handleChange('password')} onBlur={handleBlur('password')} value={values.password}/>
-                  <Button title='SIGN UP' onPress={handleSubmit} />
-                </View>
-              )}
-            </Formik>
-          </View>
-          <View>
-            <Button title='SIGN IN' onPress={() => navigation.navigate('Login')} />
-          </View>
-          <View style={styles.center}>
-            <View style={styles.test}>
-              <Button styleButton={styles.buttonSquare} styleText={styles.buttonSquareText} title='G' onPress={tryRegisterGoogle} />
-            </View>
-          </View>
+    <View style={styles.container}>
+      <View>
+        <Text style={styles.title}>Welcome in</Text>
+        <Image style={styles.logo} source={require('../../assets/WanderAR.png')} />
       </View>
+      <View>
+        <Formik initialValues={{ email: '', password: '' }}
+          onSubmit={values => tryRegister(data = values)}
+        >
+          {({ handleChange, handleBlur, handleSubmit, values }) => (
+            <View>
+              <Text style={styles.text}>Email</Text>
+              <TextInput style={styles.input} placeholder='email@exemple.com' onChangeText={handleChange('email')} onBlur={handleBlur('email')} value={values.email} />
+              <Text style={styles.text}>Password</Text>
+              <TextInput style={styles.input} placeholder='Password' onChangeText={handleChange('password')} onBlur={handleBlur('password')} value={values.password} />
+              <Text style={styles.text}>Confirm password</Text>
+              <TextInput style={styles.input} placeholder='Password' onChangeText={handleChange('password')} onBlur={handleBlur('password')} value={values.password} />
+              <Button title='SIGN UP' onPress={handleSubmit} />
+            </View>
+          )}
+        </Formik>
+      </View>
+      <View>
+        <Button title='SIGN IN' onPress={() => navigation.navigate('Login')} />
+      </View>
+      <View style={styles.center}>
+        <View style={styles.test}>
+          <Button styleButton={styles.buttonSquare} styleText={styles.buttonSquareText} title='G' onPress={tryRegisterGoogle} />
+        </View>
+      </View>
+    </View>
   );
 };
 
@@ -85,7 +85,7 @@ const styles = StyleSheet.create({
   },
   center: {
     alignSelf: 'center',
-    verticalAlign: 'center',
+
     height: 50,
   },
   title: {
