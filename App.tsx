@@ -2,9 +2,9 @@ import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
-import HomePage from './src/HomePage';
-import SettingPage from './src/SettingPage';
-import CguPage from './src/CguPage';
+import CguPage from './src/Pages/CguPage';
+import HomePage from './src/Pages/HomePage';
+import SettingPage from './src/Pages/SettingPage';
 
 const Stack = createStackNavigator();
 

@@ -1,15 +1,16 @@
 import React from 'react';
 import { ImageBackground, StyleSheet, View, Text, Image } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+import styleReference from '../Components/Style';
 
-import SearchBar from './SearchBar';
-import ScrollBar from './ScrollBar';
-import HelloScare from './HelloScare';
-import NavigationBar from './NavigationBar';
+import SearchBar from '../Components/SearchBar';
+import ScrollBar from '../Components/ScrollBar';
+import HelloScare from '../Components/HelloScare';
+import NavigationBar from '../Components/NavigationBar';
 
-const backgroundImage = require('../assets/back.svg');
-const iconFav = require('../assets/favoris.svg');
-const iconHist = require('../assets/historique.svg');
+const backgroundImage = require('../../assets/back.svg');
+const iconFav = require('../../assets/favoris.svg');
+const iconHist = require('../../assets/historique.svg');
 
 const HomePage = () => {
 
@@ -20,15 +21,15 @@ const HomePage = () => {
   };
 
   const favoris = [
-    { id: 1, name: "Lounge", description: "607", image: require("../assets/test1.png"), isFavorite: true },
-    { id: 2, name: "Pédago Room", description: "602", image: require("../assets/test2.png"), isFavorite: true },
-    { id: 3, name: "C++ Room", description: "704", image: require("../assets/test3.png"), isFavorite: true },
+    { id: 1, name: "Lounge", description: "607", image: require("../../assets/test1.png"), isFavorite: true },
+    { id: 2, name: "Pédago Room", description: "602", image: require("../../assets/test2.png"), isFavorite: true },
+    { id: 3, name: "C++ Room", description: "704", image: require("../../assets/test3.png"), isFavorite: true },
   ];
 
   const historique = [
-    { id: 1, name: "Meet Room", description: "605", image: require("../assets/test4.png"), isFavorite: false },
-    { id: 2, name: "C++ Room", description: "704", image: require("../assets/test3.png"), isFavorite: true },
-    { id: 3, name: "Amphi", description: "RDC", image: require("../assets/test5.png"), isFavorite: false },
+    { id: 1, name: "Meet Room", description: "605", image: require("../../assets/test4.png"), isFavorite: false },
+    { id: 2, name: "C++ Room", description: "704", image: require("../../assets/test3.png"), isFavorite: true },
+    { id: 3, name: "Amphi", description: "RDC", image: require("../../assets/test5.png"), isFavorite: false },
   ];
 
   const renderScroll = (title: string, icon: any) => (
@@ -109,7 +110,7 @@ const styles = StyleSheet.create({
   titre: {
     fontSize: 18,
     fontWeight: 'bold',
-    fontFamily: 'Century Gothic',
+    fontFamily: styleReference.FontFamily,
   },
   icon: {
     marginLeft: 5,

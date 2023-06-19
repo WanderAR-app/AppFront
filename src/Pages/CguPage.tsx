@@ -1,9 +1,10 @@
 import React from 'react';
 import { ImageBackground, StyleSheet, View, Text, Image, TouchableOpacity, Dimensions, ScrollView, BackHandler } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+import styleReference from '../Components/Style';
 
-const backgroundImage = require('../assets/back.svg');
-const logoImage = require('../assets/WanderAR.svg');
+const backgroundImage = require('../../assets/back.svg');
+const logoImage = require('../../assets/WanderAR.svg');
 const { width: windowWidth, height: windowHeight } = Dimensions.get('window');
 
 
@@ -82,7 +83,7 @@ const styles = StyleSheet.create({
   titre: {
     fontSize: 20,
     textAlign: 'center',
-    fontFamily: 'Century Gothic',
+    fontFamily: styleReference.FontFamily,
     fontWeight: '700',
     marginBottom: 15,
   },

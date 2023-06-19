@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { View, TextInput, StyleSheet, Keyboard } from 'react-native';
 import { FontAwesome } from '@expo/vector-icons';
+import styleReference from '../Components/Style';
 
 interface Props {
   onSearch: (searchText: string) => void;
@@ -91,7 +92,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#0066CC',
     borderRadius: 50,
     padding: 9,
-    fontFamily: 'Century Gothic',
+    fontFamily: styleReference.FontFamily,
     fontSize: 16,
     right: 0
   },

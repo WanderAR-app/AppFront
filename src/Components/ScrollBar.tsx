@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { View, ScrollView, Image, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import styleReference from './Style';
 
 type ScrollBarButtonProps = {
   id: number;
@@ -42,7 +43,7 @@ const ScrollBar = ({ buttons }: ScrollBarProps) => {
           <Text style={styles.name}>{name}</Text>
           <Text style={styles.description}>{description}</Text>
           <TouchableOpacity style={styles.likeButton} onPress={() => handleFavoriteIconPress(id)}>
-            <Image style={styles.likeIcon} source={isFavorite ? require('../assets/like.svg') : require('../assets/love.svg')} />
+            <Image style={styles.likeIcon} source={isFavorite ? require('../../assets/like.svg') : require('../../assets/love.svg')} />
           </TouchableOpacity>
         </View>
       </View>
@@ -80,16 +81,16 @@ const styles = StyleSheet.create({
     height: '60%',
   },
   scrollViewContent: {
-    paddingHorizontal: 8,
+    paddingHorizontal: styleReference.Padding8,
   },
   button: {
     width: 150,
     height: 100,
-    borderRadius: 8,
-    backgroundColor: '#D1D9E6',
+    borderRadius: styleReference.BorderRadius8,
+    backgroundColor: styleReference.ColorShadow,
     justifyContent: 'center',
     alignItems: 'center',
-    marginRight: 16,
+    marginRight: styleReference.Margin16,
   },
   imageContainer: {
     position: 'relative',
@@ -104,7 +105,7 @@ const styles = StyleSheet.create({
   textContainer: {
     flex: 1,
     alignContent: 'flex-end',
-    padding: 8,
+    padding: styleReference.Padding8,
   },
   name: {
     fontFamily: 'Century Gothic',

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Text, View, StyleSheet } from 'react-native';
+import styleReference from '../Components/Style';
 
 const HelloScare = () => {
   return (
@@ -20,25 +21,25 @@ const styles = StyleSheet.create({
   },
   square: {
     alignItems: 'center',
-    paddingHorizontal: 64,
-    paddingVertical: 24,
+    paddingHorizontal: styleReference.Padding64,
+    paddingVertical: styleReference.Padding24,
     top: '-28%',
-    borderRadius: 16,
+    borderRadius: styleReference.BorderRadius16,
     backgroundImage: 'linear-gradient(112.95deg, rgba(255, 255, 255, 0.7) 10%, rgba(255, 255, 255, 0.1) 70%)',
     borderWidth: 1,
     borderColor: 'rgba(255, 255, 255, 0.6)',
     justifyContent: 'center',
   },
   text: {
-    fontSize: 16,
+    fontSize: styleReference.FontSize16,
     textAlign: 'center',
-    fontFamily: 'Century Gothic',
+    fontFamily: styleReference.FontFamily,
   },
   companyName: {
-    fontSize: 20,
+    fontSize: styleReference.FontSize20,
     textAlign: 'center',
     fontWeight: 'bold',
-    fontFamily: 'Century Gothic',
+    fontFamily: styleReference.FontFamily,
   },
 });
 
