@@ -67,7 +67,7 @@ const LoginPage = () => {
             <Button title="SIGN UP" titleStyle={styles.buttonNoText} containerStyle={styles.buttonNo} onPress={() => navigation.navigate('Register')} />
           </View>
           <View style={styles.center}>
-            <Button icon={require('../../assets/google.png')} label="" onPress={() => navigation.navigate('Home')} />
+            <Button icon={require('../../assets/google.png')} iconStyle={styles.buttonSquare} label="" onPress={() => navigation.navigate('Home')} />
           </View>
       </View>
   );
@@ -145,10 +145,9 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   buttonSquare: {
-    flex: 1,
-    height: "100%",
-    width: "100%",
-    borderRadius: 16,
+    width: 30,
+    height: 30,
+    resizeMode: 'contain',
   },
   test: {
     flex: 1,

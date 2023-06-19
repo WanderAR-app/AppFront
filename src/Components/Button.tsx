@@ -1,9 +1,9 @@
 import React from 'react';
-import { TouchableOpacity, View, Image, Text } from 'react-native';
+import { TouchableOpacity, View, Image, Text, ImageSourcePropType } from 'react-native';
 import styles from './ButtonStyle';
 
 type Props = {
-  icon?: any;
+  icon?: string;
   label?: string;
   title?: string;
   iconStyle?: any;
@@ -15,14 +15,22 @@ type Props = {
 };
 
 const iconFunc = (icon?: any, iconStyle?: any ) => {
+  let style = styles.icon;
+  if (iconStyle)
+    style = iconStyle;
+
   if (icon) {
-    return <Image source={icon}/>;
+    return <Image source={icon} style={style}/>;
   }
 };
 
 const labelFunc = (label?: string, labelStyle?: any) => {
+  let style = styles.label;
+  if (labelStyle)
+    style = labelStyle;
+
   if (label) {
-    return <Text>{label}</Text>;
+    return <Text style={style}>{label}</Text>;
   }
 }
 
