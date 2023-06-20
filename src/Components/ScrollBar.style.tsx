@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
   image: {
     width: '100%',
     height: '100%',
-    borderRadius: 8,
+    borderRadius: styleReference.BorderRadius8,
   },
   textContainer: {
     flex: 1,
@@ -36,15 +36,15 @@ const styles = StyleSheet.create({
   name: {
     fontFamily: 'Century Gothic',
     fontWeight: "700",
-    fontSize: 16,
-    color: '#FFFFFF',
+    fontSize: styleReference.FontSize16,
+    color: styleReference.ColorWhite,
     marginTop: -60,
   },
   description: {
     fontFamily: 'Century Gothic',
     fontWeight: "700",
-    fontSize: 12,
-    color: '#FFFFFF',
+    fontSize: styleReference.FontSize10,
+    color: styleReference.ColorWhite,
     height: 30,
   },
   likeButton: {

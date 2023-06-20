@@ -14,9 +14,9 @@ const styles = StyleSheet.create({
     paddingVertical: styleReference.Padding24,
     top: '-28%',
     borderRadius: styleReference.BorderRadius16,
-    backgroundImage: 'linear-gradient(112.95deg, rgba(255, 255, 255, 0.7) 10%, rgba(255, 255, 255, 0.1) 70%)',
+    backgroundImage: styleReference.ColorBlueGradient,
     borderWidth: 1,
-    borderColor: 'rgba(255, 255, 255, 0.6)',
+    borderColor: styleReference.ColorWhite,
     justifyContent: 'center',
   },
   text: {

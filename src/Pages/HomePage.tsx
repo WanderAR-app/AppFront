@@ -5,7 +5,7 @@ import { useNavigation } from '@react-navigation/native';
 import styles from './HomePage.style'
 import SearchBar from '../Components/SearchBar';
 import ScrollBar from '../Components/ScrollBar';
-import HelloScare from '../Components/HelloScare';
+import HelloScare from '../Components/HelloSquare';
 import NavigationBar from '../Components/NavigationBar';
 
 const backgroundImage = require('../../assets/back.svg');

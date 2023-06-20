@@ -1,7 +1,7 @@
 import React from 'react';
 import { Text, View } from 'react-native';
 
-import styles from './HelloScare.style';
+import styles from './HelloSquare.style';
 
 const HelloScare = () => {
   return (
