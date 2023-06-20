@@ -5,7 +5,7 @@ import { useNavigation } from '@react-navigation/native';
 import styles from './CguPage.style'
 
 const backgroundImage = require('../../assets/back.svg');
-const logoImage = require('../../assets/WanderAR.svg');
+const logoImage = require('../../assets/WanderAR_Cgu.svg');
 
 
 const CguPage = () => {

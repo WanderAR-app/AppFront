@@ -24,7 +24,7 @@ const styles = StyleSheet.create({
   square: {
     backgroundImage: styleReference.ColorWhite,
     borderWidth: 1,
-    borderColor: styleReference.ColorBlueGradient,
+    borderColor: styleReference.ColorWhite,
     width: windowWidth * 0.9,
     aspectRatio: 1,
     justifyContent: 'center',
