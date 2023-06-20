@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { StyleSheet, View, Text, TextInput, Image, ImageBackground } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { Formik } from 'formik';
@@ -30,9 +30,12 @@ const LoginPage = () => {
       console.log(json);
       if (json.success) {
         navigation.navigate('Home');
+      } else {
+        errorMessage = "Invalid email or password !";
       }
     } catch (error) {
       console.log(error);
+      errorMessage = "Error: cannot contact server";
     }
   }
 
@@ -40,24 +43,32 @@ const LoginPage = () => {
     console.log('tryConnectGoogle');
   }
 
+  let errorMessage: string;
+
+  const error = () => {
+    return (
+      <Text style={styles.error} id="Error">{errorMessage}</Text>
+    )
+  }
+
   let data: FormData = new FormData();
 
   return (
-      <ImageBackground source={require('../../assets/bg1.png')} style={styles.bg1}>
-          <ImageBackground source={require('../../assets/bg2.png')} style={styles.bg2}>
-              <ImageBackground source={require('../../assets/bg3.png')} style={styles.bg3}>
+      <ImageBackground source={require('../../assets/Vector 9.svg')} style={styles.bg1}>
+          <ImageBackground source={require('../../assets/Vector 8.svg')} style={styles.bg2}>
+              <ImageBackground source={require('../../assets/Vector 7.svg')} style={styles.bg3}>
                 <View style={styles.container}>
                   <View>
                     <Text style={styles.title}>Welcome in</Text>
-                    <Image style={styles.logo} source={require('../../assets/WanderAR.png')} />
+                    <Image style={styles.logo} source={require('../../assets/WanderAR.svg')} />
                   </View>
-                  <Text style={styles.error}>Invalid email or password</Text>
                   <View>
                     <Formik initialValues={{ email: '', password: '' }}
                       onSubmit={values => tryConnect(data = values)}
                     >
                       {({ handleChange, handleBlur, handleSubmit, values }) => (
                         <View>
+                          {error()}
                           <Text style={styles.text}>Email</Text>
                             <View style={styles.ShadowTop}>
                               <View style={styles.ShadowBottom}>
@@ -96,9 +107,9 @@ const styles = StyleSheet.create({
     fontFamily: styleReference.FontFamily,
   },
   container: {
-    alignSelf: 'center',
-    marginTop: "37%",
     flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   center: {
     alignSelf: 'center',
@@ -202,22 +213,16 @@ const styles = StyleSheet.create({
     borderRadius: styleReference.BorderRadius16,
   },
   bg3: {
-    height: "94%",
-    width: "100%",
     resizeMode: 'cover',
-    paddingTop: 50,
+    height: '100%',
   },
   bg2: {
-    top: -10,
-    height: "98%",
-    width: "100%",
     resizeMode: 'cover',
+    height: '100%',
   },
   bg1: {
-    height: "100%",
-    width: "100%",
     resizeMode: 'cover',
-    backgroundColor: styleReference.ColorBackground,
+    height: '100%',
   },
 });
 
