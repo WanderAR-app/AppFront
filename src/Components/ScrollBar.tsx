@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { View, ScrollView, Image, Text, StyleSheet, TouchableOpacity } from 'react-native';
-import styleReference from './Style';
+import { View, ScrollView, Image, Text, TouchableOpacity } from 'react-native';
+
+import styles from './ScrollBar.style';
 
 type ScrollBarButtonProps = {
   id: number;
@@ -39,12 +40,12 @@ const ScrollBar = ({ buttons }: ScrollBarProps) => {
     <TouchableOpacity style={styles.button} onPress={onPress}>
       <View style={styles.imageContainer}>
         <Image style={styles.image} source={image} resizeMode="cover" />
-          <TouchableOpacity style={styles.likeButton} onPress={() => handleFavoriteIconPress(id)}>
-            <Image style={styles.likeIcon} source={isFavorite ? require('../../assets/like.png') : require('../../assets/love.png')} />
-          </TouchableOpacity>
         <View style={styles.textContainer}>
           <Text style={styles.name}>{name}</Text>
           <Text style={styles.description}>{description}</Text>
+          <TouchableOpacity style={styles.likeButton} onPress={() => handleFavoriteIconPress(id)}>
+            <Image style={styles.likeIcon} source={isFavorite ? require('../../assets/like.svg') : require('../../assets/love.svg')} />
+          </TouchableOpacity>
         </View>
       </View>
     </TouchableOpacity>
@@ -75,60 +76,5 @@ const ScrollBar = ({ buttons }: ScrollBarProps) => {
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    height: '60%',
-  },
-  scrollViewContent: {
-    paddingHorizontal: styleReference.Padding8,
-  },
-  button: {
-    width: 150,
-    height: 100,
-    borderRadius: styleReference.BorderRadius8,
-    backgroundColor: styleReference.ColorShadow,
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginRight: styleReference.Margin16,    
-  },
-  imageContainer: {
-    position: 'relative',
-    width: '100%',
-  },
-  image: {
-    width: '100%',
-    height: '100%',
-    borderRadius: 20,
-  },
-  textContainer: {
-    flex: 1,
-    alignContent: 'flex-end',
-    padding: styleReference.Padding8,
-  },
-  name: {
-    fontWeight: 'bold',
-    fontSize: 16,
-    color: '#fff',
-  },
-  description: {
-    fontSize: 12,
-    color: '#fff',
-  },
-  likeButton: {
-    position: 'absolute',
-    marginTop: -35,
-    right: 15,
-    width: 30,
-    height: 30,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  likeIcon: {
-    width: '100%',
-    height: '100%',
-    resizeMode: 'contain',
-  },
-});
 
 export default ScrollBar;

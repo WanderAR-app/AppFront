@@ -1,17 +1,6 @@
-import React from 'react';
-import { Text, View, StyleSheet } from 'react-native';
-import styleReference from '../Components/Style';
+import { StyleSheet } from 'react-native';
 
-const HelloScare = () => {
-  return (
-    <View style={styles.container}>
-      <View style={styles.square}>
-        <Text style={styles.text}>Bienvenue{'\n'}à</Text>
-        <Text style={styles.companyName}>Epitech</Text>
-      </View>
-    </View>
-  );
-};
+import styleReference from './Style';
 
 const styles = StyleSheet.create({
   container: {
@@ -25,9 +14,9 @@ const styles = StyleSheet.create({
     paddingVertical: styleReference.Padding24,
     top: '-28%',
     borderRadius: styleReference.BorderRadius16,
-    backgroundImage: 'linear-gradient(112.95deg, rgba(255, 255, 255, 0.7) 10%, rgba(255, 255, 255, 0.1) 70%)',
+    backgroundImage: styleReference.ColorWhite,
     borderWidth: 1,
-    borderColor: 'rgba(255, 255, 255, 0.6)',
+    borderColor: styleReference.ColorWhiteOpacity,
     justifyContent: 'center',
   },
   text: {
@@ -43,4 +32,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default HelloScare;
+export default styles;

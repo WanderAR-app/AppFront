@@ -1,16 +1,16 @@
 import React from 'react';
-import { ImageBackground, StyleSheet, View, Text, Image } from 'react-native';
+import { ImageBackground, View, Text, Image } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import styleReference from '../Components/Style';
 
+import styles from './HomePage.style'
 import SearchBar from '../Components/SearchBar';
 import ScrollBar from '../Components/ScrollBar';
-import Button from '../Components/Button';
-import HelloScare from '../Components/HelloScare';
+import HelloScare from '../Components/HelloSquare';
+import NavigationBar from '../Components/NavigationBar';
 
-const backgroundImage = require('../../assets/back.png');
-const iconFav = require('../../assets/favoris.png');
-const iconHist = require('../../assets/historique.png');
+const backgroundImage = require('../../assets/back.svg');
+const iconFav = require('../../assets/favoris.svg');
+const iconHist = require('../../assets/historique.svg');
 
 const HomePage = () => {
 
@@ -56,95 +56,11 @@ const HomePage = () => {
               {renderScroll("Historique", iconHist)}
             </View>
           </View>
-          <View style={styles.buttonContainer}>
-          <View style={styles.scan}>
-              <Button icon={require('../../assets/scan.png')} label="Scan QR" onPress={() => navigation.navigate('Scan' as never)} />
-            </View>
-            <View style={styles.home}>
-              <Button icon={require('../../assets/home.png')} label="Home" onPress={() => navigation.navigate('Home' as never)} />
-            </View>
-            <View style={styles.setting}>
-              <Button icon={require('../../assets/parametre.png')} label="Setting" onPress={() => navigation.navigate('SettingPage' as never)} />
-            </View>
-          </View>
+          <NavigationBar navigation={navigation} />
         </View>
       </View>
     </ImageBackground>
   );
 };
-
-const styles = StyleSheet.create({
-  backgroundImage: {
-    flex: 1,
-    resizeMode: 'cover',
-    justifyContent: 'center',
-    height: 462,
-  },
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    paddingBottom: 20,
-  },
-  square: {
-    position: 'absolute',
-    bottom: -10,
-    left: 0,
-    right: 0,
-    backgroundColor: '#ECF0F3',
-    borderTopRightRadius: 50,
-    overflow: 'hidden',
-  },
-  searchBarContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-    paddingHorizontal: 10,
-    top: 10,
-  },
-  scrollContainer: {
-    flexDirection: 'column',
-    marginHorizontal: 5,
-    marginVertical: 2,
-  },
-  scroll: {
-    height: 165,
-    marginTop: 10,
-  },
-  titleContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    paddingHorizontal: 20,
-    marginVertical: 10,
-  },
-  titre: {
-    fontSize: 18,
-    fontWeight: 'bold',
-    fontFamily: styleReference.FontFamily,
-  },
-  icon: {
-    marginLeft: 5,
-  },
-  buttonContainer: {
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    backgroundColor: '#ECF0F3',
-    borderRadius: 10,
-    paddingVertical: 10,
-    paddingHorizontal: 15,
-    width: '100%',
-    flexDirection: 'row',
-    marginTop: -10,
-  },
-  scan: {
-    marginLeft: 10,
-  },
-  home: {
-    marginLeft: 10,
-  },
-  setting: {
-    marginLeft: 10,
-  }
-});
 
 export default HomePage;

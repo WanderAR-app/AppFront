@@ -1,15 +1,14 @@
 import React from 'react';
-import { ImageBackground, StyleSheet, View, Text, Image, TouchableOpacity, Dimensions, ScrollView, BackHandler } from 'react-native';
+import { ImageBackground, View, Text, Image, TouchableOpacity, ScrollView, BackHandler } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import styleReference from '../Components/Style';
 
-const backgroundImage = require('../../assets/back.png');
-const logoImage = require('../../assets/WanderAR.png');
-const { width: windowWidth, height: windowHeight } = Dimensions.get('window');
+import styles from './CguPage.style'
+
+const backgroundImage = require('../../assets/back.svg');
+const logoImage = require('../../assets/WanderAR_Cgu.svg');
 
 
 const CguPage = () => {
-
   const navigation = useNavigation();
 
   const handleRefuse = () => {
@@ -45,93 +44,5 @@ const CguPage = () => {
     </ImageBackground>
   );
 };
-
-
-const styles = StyleSheet.create({
-  backgroundImage: {
-    flex: 1,
-    resizeMode: 'cover',
-    justifyContent: 'center',
-  },
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  logo: {
-    position: 'absolute',
-    top: '50%',
-    left: '50%',
-    transform: [{translateY: -windowHeight * 0.4}, {translateX: -windowWidth * 0.25}],
-  },
-  square: {
-    backgroundColor: 'rgba(255, 255, 255, 0.8)',
-    width: windowWidth * 0.9,
-    aspectRatio: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    borderRadius: 15,
-  },
-  scrollViewContent: {
-    flexGrow: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: 20,
-  },
-  titre: {
-    fontSize: 20,
-    textAlign: 'center',
-    fontFamily: styleReference.FontFamily,
-    fontWeight: '700',
-    marginBottom: 15,
-  },
-  text: {
-    fontSize: 15,
-    fontStyle: 'italic',
-    fontWeight: '400',
-    marginTop: '2%',
-    marginBottom: 10,
-  },
-  buttonsContainer: {
-    flexDirection: 'column',
-    width: '80%',
-    alignSelf: 'center',
-    marginTop: 10,
-  },
-  acceptButton: {
-    borderRadius: 16,
-    paddingVertical: 10,
-    alignItems: 'center',
-    marginVertical: 5,
-    marginTop: 15,
-    backgroundColor: 'rgba(125, 169, 241, 0.9)',
-    shadowColor: "#D1D9E6",
-    shadowOffset: { width: 4, height: 4 },
-    shadowOpacity: 1,
-    shadowRadius: 5,
-  },
-  acceptTexte: {
-    color: '#ecf0f3',
-    fontSize: 20,
-    fontStyle: 'italic',
-  },
-  refuseButton: {
-    borderRadius: 16,
-    paddingVertical: 10,
-    alignItems: 'center',
-    marginVertical: 5,
-    marginTop: 15,
-    backgroundColor: "#ECF0F3",
-    shadowColor: "#D1D9E6",
-    shadowOffset: { width: 4, height: 4 },
-    shadowOpacity: 1,
-    shadowRadius: 5,
-  },
-  refuseTexte: {
-    color: '#638ef1',
-    fontSize: 20,
-    fontStyle: 'italic',
-  },
-});
 
 export default CguPage;
