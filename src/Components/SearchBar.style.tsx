@@ -35,7 +35,6 @@ const styles = StyleSheet.create({
     padding: styleReference.Padding8,
     fontFamily: styleReference.FontFamily,
     fontSize:  styleReference.FontSize16,
-    right: 0
   },
 });
 

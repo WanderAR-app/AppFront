@@ -14,9 +14,9 @@ const styles = StyleSheet.create({
     paddingVertical: styleReference.Padding24,
     top: '-28%',
     borderRadius: styleReference.BorderRadius16,
-    backgroundImage: styleReference.ColorBlueGradient,
+    backgroundImage: styleReference.ColorWhite,
     borderWidth: 1,
-    borderColor: styleReference.ColorWhite,
+    borderColor: styleReference.ColorWhiteOpacity,
     justifyContent: 'center',
   },
   text: {
