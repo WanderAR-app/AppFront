@@ -1,6 +1,7 @@
 import React from 'react';
-import { TouchableOpacity, View, Image, Text, ImageSourcePropType } from 'react-native';
-import styles from './ButtonStyle';
+import { TouchableOpacity, View, Image, Text } from 'react-native';
+
+import styles from './Button.style';
 
 type Props = {
   icon?: string;
