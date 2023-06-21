@@ -30,6 +30,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: styleReference.BorderRadius16,
+    backgroundColor: '112,95deg rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.1)',
   },
   scrollViewContent: {
     flexGrow: 1,

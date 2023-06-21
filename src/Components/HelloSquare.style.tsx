@@ -18,6 +18,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: styleReference.ColorWhiteOpacity,
     justifyContent: 'center',
+    backgroundColor: '112,95deg rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.1)',
   },
   text: {
     fontSize: styleReference.FontSize16,
