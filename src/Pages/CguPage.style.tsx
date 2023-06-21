@@ -22,7 +22,6 @@ const styles = StyleSheet.create({
     height: 100,
   },
   square: {
-    backgroundImage: styleReference.ColorWhite,
     borderWidth: 1,
     borderColor: styleReference.ColorWhite,
     width: windowWidth * 0.9,
@@ -30,7 +29,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: styleReference.BorderRadius16,
-    backgroundColor: '112,95deg rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.1)',
+    backgroundColor: 'linear-gradient(112.95deg, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.1))',
   },
   scrollViewContent: {
     flexGrow: 1,

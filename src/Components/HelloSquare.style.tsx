@@ -14,11 +14,10 @@ const styles = StyleSheet.create({
     paddingVertical: styleReference.Padding24,
     top: '-28%',
     borderRadius: styleReference.BorderRadius16,
-    backgroundImage: styleReference.ColorWhite,
     borderWidth: 1,
     borderColor: styleReference.ColorWhiteOpacity,
     justifyContent: 'center',
-    backgroundColor: '112,95deg rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.1)',
+    backgroundColor: 'linear-gradient(112.95deg, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.1))',
   },
   text: {
     fontSize: styleReference.FontSize16,
