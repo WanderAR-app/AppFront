@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
-import { View, ScrollView, Image, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, ScrollView, Image, Text, TouchableOpacity } from 'react-native';
+
+import styles from './ScrollBar.style';
 
 type ScrollBarButtonProps = {
   id: number;
@@ -42,7 +44,7 @@ const ScrollBar = ({ buttons }: ScrollBarProps) => {
           <Text style={styles.name}>{name}</Text>
           <Text style={styles.description}>{description}</Text>
           <TouchableOpacity style={styles.likeButton} onPress={() => handleFavoriteIconPress(id)}>
-            <Image style={styles.likeIcon} source={isFavorite ? require('../assets/like.png') : require('../assets/love.png')} />
+            <Image style={styles.likeIcon} source={isFavorite ? require('../../assets/like.svg') : require('../../assets/love.svg')} />
           </TouchableOpacity>
         </View>
       </View>
@@ -74,63 +76,5 @@ const ScrollBar = ({ buttons }: ScrollBarProps) => {
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    height: '60%',
-  },
-  scrollViewContent: {
-    paddingHorizontal: 10,
-  },
-  button: {
-    width: 150,
-    height: 100,
-    borderRadius: 20,
-    backgroundColor: '#ddd',
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginHorizontal: 10,
-  },
-  imageContainer: {
-    position: 'relative',
-    width: '100%',
-  },
-  image: {
-    width: '100%',
-    height: '100%',
-    borderRadius: 20,
-  },
-  textContainer: {
-    position: 'absolute',
-    bottom: 0,
-    left: 0,
-    right: 0,
-    paddingHorizontal: 5,
-    paddingBottom: 10,
-  },
-  name: {
-    fontWeight: 'bold',
-    fontSize: 16,
-    color: '#fff',
-  },
-  description: {
-    fontSize: 12,
-    color: '#fff',
-  },
-  likeButton: {
-    position: 'absolute',
-    marginTop: -35,
-    right: 15,
-    width: 30,
-    height: 30,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  likeIcon: {
-    width: '100%',
-    height: '100%',
-    resizeMode: 'contain',
-  },
-});
 
 export default ScrollBar;
