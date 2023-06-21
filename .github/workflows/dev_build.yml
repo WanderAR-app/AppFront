@@ -9,17 +9,53 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
-    - uses: actions/setup-node@v3
-      with:
-        node-version: latest
-        cache: npm
-    - name: Setup Expo and EAS
-      uses: expo/expo-github-action@v8
-      with:
-        eas-version: latest
-        token: ${{ secrets.EXPO_TOKEN }}
-    - name: Install dependencies - Clean Install
-      run: npm ci
-    - name: Build on EAS
-      run: eas build --platform android --non-interactive
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      # Trying to install dependecies from cache
+      - name: Cache node modules
+        id: cache-npm
+        uses: actions/cache@v3
+        env:
+          cache-name: cache-node-modules
+        with:
+          path: ~/.npm
+          key: android-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            android-build-${{ env.cache-name }}-
+            android-build-
+            android-
+      - if: ${{ steps.cache-npm.outputs.cache-hit == 'false' }}
+        name: List the state of node modules
+        continue-on-error: true
+        run: npm list
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Setup Expo
+        uses: expo/expo-github-action@v7
+        with:
+          expo-version: latest
+          eas-version: latest
+          token: ${{ secrets.EXPO_TOKEN }}
+
+      - name: Setup EAS local builds
+        run: npm i -g eas-cli-local-build-plugin
+
+      - name: Test
+        run: npm run test
+
+      - name: Build
+        run: |
+          eas build --local \
+            --non-interactive \
+            --output=./out \
+            --platform=android \
+            --profile=${{ github.event.inputs.profile }}
+      # Upload the app binaries to the artifact section of the workflow
+      # They can optionally be downloaded by the user later on or for example added to a release
+      - name: Upload binary
+        uses: actions/upload-artifact@v2
+        with:
+          name: AppFront-android
+          path: out
