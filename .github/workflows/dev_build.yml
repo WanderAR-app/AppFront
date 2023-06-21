@@ -48,7 +48,7 @@ jobs:
             --non-interactive \
             --output=./out \
             --platform=android \
-            --profile=${{ github.event.inputs.profile }}
+            --profile=development
       # Upload the app binaries to the artifact section of the workflow
       # They can optionally be downloaded by the user later on or for example added to a release
       - name: Upload binary
