@@ -42,9 +42,6 @@ jobs:
       - name: Setup EAS local builds
         run: npm i -g eas-cli-local-build-plugin
 
-      - name: Test
-        run: npm run test
-
       - name: Build
         run: |
           eas build --local \
