@@ -1,0 +1,42 @@
+name: Build and Test
+
+on:
+  pull_request_target:
+    branches:
+      - main
+    types:
+      - opened
+      - synchronize
+
+jobs:
+  verify-from-dev:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Verify from dev
+        run: |
+          if [ "${{ github.event.pull_request.base.ref }}" !:  "dev" ]; then
+            echo "Merge request must come from dev branch."
+            exit 1
+          fi
+          echo "Merge request comes from dev branch."
+
+  build-and-test:
+    needs: verify-from-dev
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Install dependencies
+        run: npm ci
+
+      #                       WAITING FOR JEST ON THE REPOSITORY
+      # 
+      # - name: Run Jest tests
+      #   env:
+      #   run: npm run test
