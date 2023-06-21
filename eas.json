@@ -2,17 +2,15 @@
   "cli": {
     "version": ">= 3.10.2"
   },
-  "builds": {
-    "android": {
-      "release": {
-        "workflow": "generic",
-        "distribution": "store",
-        "releaseChannel": "default"
-      },
-      "development": {
-        "workflow": "generic",
-        "developmentClient": true
-      }
+  "android": {
+    "release": {
+      "workflow": "generic",
+      "distribution": "store",
+      "releaseChannel": "default"
+    },
+    "development": {
+      "workflow": "generic",
+      "developmentClient": true
     }
   },
   "submit": {
