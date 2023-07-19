@@ -2,8 +2,8 @@ import { StyleSheet } from 'react-native';
 
 import styleReference from './Style';
 
-const styles = StyleSheet.create({
+const images = StyleSheet.create({
     
 });
 
-export default styles;
+export default images;

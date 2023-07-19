@@ -3,7 +3,10 @@ import { View, Text } from 'react-native';
 import styles from './GlassMorphismeBox.style';
 
 type Props = {
+    containerStyle?: any;
 };
+
+//maybe prevent using bg, bordercolor, border radius.
 
 const GlassMorphismeBox = ({ }: Props) => {
     return (
@@ -12,3 +15,5 @@ const GlassMorphismeBox = ({ }: Props) => {
         </View>
     );
 };
+
+export default GlassMorphismeBox;
