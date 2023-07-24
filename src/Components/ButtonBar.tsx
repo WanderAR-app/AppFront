@@ -11,7 +11,7 @@ const NavigationBar = ({ navigation }: { navigation: any }) => {
         <Button icon={require('../../assets/scan.svg')} label="Scan QR" onPress={() => console.log('Scan button')} />
       </View>
       <View style={styles.spaceButton}>
-        <Button icon={require('../../assets/home-actif.svg')} label="Home" onPress={() => navigation.navigate('Home')} />
+        <Button icon={require('../../assets/home.svg')} label="Home" onPress={() => navigation.navigate('Home')} />
       </View>
       <View style={styles.spaceButton}>
         <Button icon={require('../../assets/parametre.svg')} label="Setting" onPress={() => navigation.navigate('Setting')} />
