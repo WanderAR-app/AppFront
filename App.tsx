@@ -7,6 +7,7 @@ import LoginPage from './src/Pages/LoginPage';
 import AdminLoginPage from './src/Pages/AdminLoginPage';
 import CguPage from './src/Pages/CguPage';
 import HomePage from './src/Pages/HomePage';
+import TestPage from './src/Pages/TestPage';
 
 const Stack = createStackNavigator();
 
@@ -14,6 +15,7 @@ function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
+        <Stack.Screen name="Test" component={TestPage} options={{ headerShown: false }} />
         <Stack.Screen name="Register" component={RegisterPage} options={{ headerShown: false }} />
         <Stack.Screen name="Login" component={LoginPage} options={{ headerShown: false }} />
         <Stack.Screen name="AdminLogin" component={AdminLoginPage} options={{ headerShown: false }} />

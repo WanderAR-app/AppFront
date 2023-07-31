@@ -2,13 +2,11 @@ import React from 'react';
 import { View, Text } from 'react-native';
 import styles from './GlassMorphismeBox.style';
 
-type Props = {
-};
-
-const GlassMorphismeBox = ({ }: Props) => {
+const GlassMorphismeBox = ({ children }) => {
     return (
         <View>
-            <Text>GlassMorphismeBox</Text>
+            {children}
         </View>
     );
 };
+export default GlassMorphismeBox;
