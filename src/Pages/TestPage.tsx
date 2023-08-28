@@ -1,12 +1,11 @@
 import { View, Text } from 'react-native';
 import GlassMorphismeBox from '../NewComponents/GlassMorphismeBox';
+import SwitchOnOff from '../NewComponents/SwitchOnOff';
 
 const TestPage = () => {
     return (
         <View>
-            <GlassMorphismeBox>
-                <Text>Test</Text>
-            </GlassMorphismeBox>
+            <SwitchOnOff />
         </View>
     );
 }

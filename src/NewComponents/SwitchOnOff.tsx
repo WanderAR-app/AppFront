@@ -1,14 +1,25 @@
 import React from 'react';
 import { View, Text } from 'react-native';
+import SwitchToggle from "react-native-switch-toggle";
 import styles from './SwitchOnOff.style';
 
 type Props = {
 };
 
 const SwitchOnOff = ({ }: Props) => {
+
+    const tast: any;
+
+    const off = () => {
+        console.log("off");
+        tast = get
+    }
+
     return (
         <View>
-            <Text>SwitchOnOff</Text>
+            <SwitchToggle id={"switch"} switchOn={true} onPress={() => off()}/>
         </View>
     );
 };
+
+export default SwitchOnOff;
