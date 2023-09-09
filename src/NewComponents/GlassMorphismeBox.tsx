@@ -4,7 +4,7 @@ import styles from './GlassMorphismeBox.style';
 
 const GlassMorphismeBox = ({ children }) => {
     return (
-        <View>
+        <View style={styles.glassMorphism}>
             {children}
         </View>
     );

@@ -8,16 +8,9 @@ type Props = {
 
 const SwitchOnOff = ({ }: Props) => {
 
-    const tast: any;
-
-    const off = () => {
-        console.log("off");
-        tast = get
-    }
-
     return (
         <View>
-            <SwitchToggle id={"switch"} switchOn={true} onPress={() => off()}/>
+            <SwitchToggle switchOn={on} onPress={() => off(!on)} />
         </View>
     );
 };
