@@ -36,8 +36,8 @@ const Rectangle = ({ icon, title, iconStyle, titleStyle, containerStyle, onPress
     container = containerStyle;
 
   return (
-    <View style={{...styles.ShadowTop, borderRadius: container.borderRadius, backgroundColor: container.backgroundColor}} >
-      <View style={{...styles.ShadowBottom, borderRadius: container.borderRadius, backgroundColor: container.backgroundColor, backgroundImage: container.backgroundImage}}>
+    <View style={{...styles.ShadowTop}} >
+      <View style={{...styles.ShadowBottom}}>
       <TouchableOpacity style={{...container, flexDirection: 'row', alignItems: 'center'}} onPress={onPress}>
         {iconFunc(icon, iconStyle)}
         {titleFunc(title, titleStyle)}

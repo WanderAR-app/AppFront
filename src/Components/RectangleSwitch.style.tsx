@@ -8,11 +8,6 @@ const styles = StyleSheet.create({
       height: 49,
       width: 342,
     },
-    icon: {
-      width: 30,
-      height: 30,
-      resizeMode: 'contain',
-    },
     ShadowTop: {
       shadowColor: styleReference.ColorShadow,
       shadowOffset: styleReference.ShadowDarkOffset,
@@ -32,7 +27,10 @@ const styles = StyleSheet.create({
     title: {
       flex: 1,
       marginLeft: 8,
-    }
+    },
+    switchContainer: {
+      marginRight: 24,
+    },
   });
 
 export default styles;

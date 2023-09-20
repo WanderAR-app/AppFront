@@ -14,7 +14,7 @@ const RectangleNavigation = ({ navigation }: { navigation: any }) => {
         <Rectangle icon={require('../../assets/voix.svg')} title="Voix et sons" onPress={() => console.log('Voix et sons')} />
       </View>
       <View style={styles.spaceButton}>
-        <Rectangle icon={require('../../assets/navigation.svg')} title="Navigation" onPress={() => console.log('Navigation')} />
+        <Rectangle icon={require('../../assets/navigation.svg')} title="Navigation" onPress={() => navigation.navigate('Navigation')} />
       </View>
       <View style={styles.spaceButton}>
         <Rectangle icon={require('../../assets/politique.svg')} title="Politique de confidentialité" onPress={() => navigation.navigate('Politique')} />

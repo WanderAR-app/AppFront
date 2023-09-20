@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { View, ScrollView, Image, Text, TouchableOpacity } from 'react-native';
+import * as Font from 'expo-font';
 
 import styles from './ScrollBar.style';
 
@@ -11,6 +12,13 @@ type ScrollBarButtonProps = {
   isFavorite: boolean;
   onPress?: () => void;
 };
+
+async function loadCustomFont() {
+  await Font.loadAsync({
+    'CenturyGothic': require('../../assets/CenturyGothic.ttf'),
+  });
+}
+loadCustomFont();
 
 type ScrollBarProps = {
   buttons: ScrollBarButtonProps[];

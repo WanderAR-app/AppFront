@@ -53,9 +53,9 @@ const LoginPage = () => {
   }
 
   return (
-    <ImageBackground source={require('../../assets/Vector 9.svg')} style={styles.bg1}>
-      <ImageBackground source={require('../../assets/Vector 8.svg')} style={styles.bg2}>
-        <ImageBackground source={require('../../assets/Vector 7.svg')} style={styles.bg3}>
+    <ImageBackground source={require('../../assets/Vector9.svg')} style={styles.bg1}>
+      <ImageBackground source={require('../../assets/Vector8.svg')} style={styles.bg2}>
+        <ImageBackground source={require('../../assets/Vector7.svg')} style={styles.bg3}>
           <View style={{...styles.containerMain, top: 20}}>
             <View style={styles.containerTop}>
               <Text style={styles.title}>Welcome in</Text>
