@@ -1,12 +1,10 @@
 import React from 'react';
 import { TouchableOpacity, View, Image, Text } from 'react-native';
-import styles from './Rectangle.style';
+import styles from './CircleButton.style';
 
 type Props = {
   icon?: string;
-  title?: string;
   iconStyle?: any;
-  titleStyle?: any;
   containerStyle?: any;
 
   onPress?: () => void;
@@ -22,13 +20,7 @@ const iconFunc = (icon?: any, iconStyle?: any ) => {
   }
 };
 
-const titleFunc = (title?: string, titleStyle?: any) => {
-  if (title) {
-    return <Text style={[styles.title, titleStyle]}>{title}</Text>;
-  }
-}
-
-const Rectangle = ({ icon, title, iconStyle, titleStyle, containerStyle, onPress }: Props) => {
+const CircleButton = ({ icon, iconStyle, containerStyle, onPress }: Props) => {
   let container = styles.container;
   if (containerStyle)
     container = containerStyle;
@@ -38,11 +30,10 @@ const Rectangle = ({ icon, title, iconStyle, titleStyle, containerStyle, onPress
       <View style={{...styles.ShadowBottom}}>
       <TouchableOpacity style={{...container, flexDirection: 'row', alignItems: 'center'}} onPress={onPress}>
         {iconFunc(icon, iconStyle)}
-        {titleFunc(title, titleStyle)}
       </TouchableOpacity>
       </View>
     </View>
   );
 };
 
-export default Rectangle;
+export default CircleButton;
