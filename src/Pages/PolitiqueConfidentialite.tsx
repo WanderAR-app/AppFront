@@ -4,12 +4,16 @@ import { useNavigation } from '@react-navigation/native';
 
 import styles from './PolitiqueConfidentialite.style';
 import NavigationBar from '../Components/NavigationBar';
+import CircleReturnButton from '../Components/CircleReturnButton';
 
 const PolitiqueConfidentialite = () => {
   const navigation = useNavigation();
 
   return (
       <View style={styles.container}>
+        <View style={styles.return}>
+          <CircleReturnButton navigation={navigation} />
+        </View>
         <Text style={styles.titre}>
           Politique de confidentialité
         </Text>

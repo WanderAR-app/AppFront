@@ -12,7 +12,7 @@ const ProposPage = () => {
   return (
     <View style={styles.container}>
       <View style={styles.return}>
-        <CircleReturnButton navigation={navigation} />
+        <CircleReturnButton navigation={navigation} icon={require('../../assets/circle-button.svg')} />
       </View>
       <Text style={styles.titre}>
         Notes et à propos

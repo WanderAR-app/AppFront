@@ -7,12 +7,26 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     paddingBottom: styleReference.Padding24,
   },
+  return: {
+    position: 'absolute',
+    marginTop: 70,
+    left: -48,
+    top: -7,
+  },
   titre: {
     fontFamily: styleReference.FontFamily,
     fontSize: styleReference.FontSize20,
     fontStyle: 'italic',
     fontWeight: 'bold',
     marginTop: 70,
+  },
+  text: {
+    fontFamily: styleReference.FontFamily,
+    fontSize: styleReference.FontSize16,
+    fontStyle: 'italic',
+    fontWeight: 'bold',
+    marginLeft: -270,
+    marginTop: 20,
   },
   toggleContainer: {
     flexDirection: 'row',
