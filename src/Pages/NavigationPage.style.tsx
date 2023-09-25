@@ -25,7 +25,7 @@ const styles = StyleSheet.create({
     fontSize: styleReference.FontSize16,
     fontStyle: 'italic',
     fontWeight: 'bold',
-    marginLeft: -270,
+    marginLeft: -250,
     marginTop: 20,
   },
   toggleContainer: {

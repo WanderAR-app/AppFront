@@ -11,6 +11,7 @@ import SettingPage from "./src/Pages/SettingPage";
 import NavigationPage from './src/Pages/NavigationPage';
 import PolitiqueConfidentialite from "./src/Pages/PolitiqueConfidentialite";
 import ProposPage from './src/Pages/ProposPage';
+import VoixPage from './src/Pages/VoixPages';
 
 const Stack = createStackNavigator();
 
@@ -27,6 +28,7 @@ function App() {
         <Stack.Screen name='Navigation' component={NavigationPage} options={{ headerShown: false }} />
         <Stack.Screen name='Politique' component={PolitiqueConfidentialite} options={{ headerShown: false }} />
         <Stack.Screen name='Propos' component={ProposPage} options={{ headerShown: false }} />
+        <Stack.Screen name='Voix' component={VoixPage} options={{ headerShown: false }} />
       </Stack.Navigator>
     </NavigationContainer>
   );

@@ -9,6 +9,8 @@ const styles = StyleSheet.create({
       width: 342,
     },
     ShadowTop: {
+      height: 49,
+      width: 342,
       shadowColor: styleReference.ColorShadow,
       shadowOffset: styleReference.ShadowDarkOffset,
       shadowRadius: styleReference.ShadowBlur,

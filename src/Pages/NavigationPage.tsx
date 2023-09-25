@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
-// import { Switch } from 'react-native-paper';
 import { useNavigation } from '@react-navigation/native';
 
 
